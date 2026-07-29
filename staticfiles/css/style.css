@@ -1,0 +1,295 @@
+/* ----------------------------------------
+   RecipeHub design variables
+---------------------------------------- */
+
+:root {
+    --color-primary: #2f5d50;
+    --color-primary-dark: #1e4037;
+    --color-accent: #d97745;
+    --color-background: #faf6f0;
+    --color-surface: #ffffff;
+    --color-text: #292929;
+    --color-text-light: #5f5f5f;
+    --color-border: #ded7cf;
+    --shadow-soft: 0 0.75rem 2rem rgb(30 64 55 / 10%);
+    --content-width: 75rem;
+}
+
+
+/* ----------------------------------------
+   Reset and global styles
+---------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    width: min(100% - 2rem, var(--content-width));
+    margin-inline: auto;
+}
+
+
+/* ----------------------------------------
+   Header and navigation
+---------------------------------------- */
+
+.site-logo {
+    color: var(--color-primary-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--color-accent);
+}
+
+/* ========================================
+   Navigation
+======================================== */
+
+.recipehub-navbar {
+    background-color: #2F5D50;
+}
+
+.recipehub-navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.recipehub-navbar .navbar-brand:hover,
+.recipehub-navbar .navbar-brand:focus {
+    color: #D97745;
+}
+
+.recipehub-navbar .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.recipehub-navbar .nav-link:hover,
+.recipehub-navbar .nav-link:focus {
+    color: #D97745;
+}
+
+.recipehub-navbar .nav-link.active {
+    color: #D97745 !important;
+}
+
+
+/* ----------------------------------------
+   Hero
+---------------------------------------- */
+
+.hero {
+    display: grid;
+    min-height: 33rem;
+    place-items: center;
+    background:
+        linear-gradient(
+            rgb(30 64 55 / 88%),
+            rgb(30 64 55 / 88%)
+        ),
+        var(--color-primary);
+    color: var(--color-surface);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 52rem;
+    padding-block: 5rem;
+}
+
+.hero h1 {
+    margin: 0 0 1rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.75rem, 8vw, 5.5rem);
+    line-height: 1;
+}
+
+.hero-text {
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+
+/* ----------------------------------------
+   Reusable content styles
+---------------------------------------- */
+
+.section {
+    padding-block: 5rem;
+}
+
+.section-heading {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section h2 {
+    margin: 0;
+    color: var(--color-primary-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.85rem 1.4rem;
+    border: 2px solid transparent;
+    border-radius: 0.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    background-color: var(--color-accent);
+    color: var(--color-surface);
+}
+
+.button-primary:hover,
+.button-primary:focus-visible {
+    background-color: var(--color-surface);
+    color: var(--color-primary-dark);
+}
+
+.empty-state {
+    max-width: 42rem;
+    margin-inline: auto;
+    padding: 3rem 2rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.empty-state h3 {
+    margin-top: 0;
+    color: var(--color-primary-dark);
+}
+
+.empty-state p {
+    margin-bottom: 0;
+    color: var(--color-text-light);
+}
+
+.section-accent {
+    background-color: var(--color-surface);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-content > p {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+}
+
+
+/* ----------------------------------------
+   Footer
+---------------------------------------- */
+
+.site-footer {
+    padding-block: 1.5rem;
+    background-color: var(--color-primary-dark);
+    color: var(--color-surface);
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+
+/* ----------------------------------------
+   Keyboard accessibility
+---------------------------------------- */
+
+a:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+
+/* ----------------------------------------
+   Responsive design
+---------------------------------------- */
+
+@media (max-width: 43.75rem) {
+    .header-content {
+        flex-direction: column;
+        padding-block: 1rem;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem 1.25rem;
+    }
+
+    .hero {
+        min-height: 28rem;
+    }
+
+    .section {
+        padding-block: 3.5rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
