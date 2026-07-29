@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+    RecipeHub | Cook, Share and Discover
+{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="container hero-content">
+            <p class="eyebrow">Welcome to</p>
+
+            <h1>RecipeHub</h1>
+
+            <p class="hero-text">
+                Discover the recipes you want,  share your own ideas and learn how to preapare healthy meals.
+            </p>
+
+            <a
+                class="button button-primary"
+                href="#recent-recipes"
+            >
+                Browse recipes
+            </a>
+        </div>
+    </section>
+
+    <section
+        id="recent-recipes"
+        class="section"
+        aria-labelledby="recent-recipes-heading"
+    >
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">Explore new recipes</p>
+
+                <h2 id="recent-recipes-heading">
+                    Recent recipes
+                </h2>
+            </div>
+
+            <div class="empty-state">
+                <h3>Recipes are coming soon</h3>
+
+                <p>
+                    Recent recipes will appear here soon.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section
+        id="about"
+        class="section section-accent"
+        aria-labelledby="about-heading"
+    >
+        <div class="container about-content">
+            <div>
+                <p class="eyebrow">About RecipeHub</p>
+
+                <h2 id="about-heading">
+                    A place for people who likes to eat
+                </h2>
+            </div>
+
+            <p>
+                RecipeHub brings people who love to cook together in one welcoming community. Anyone can visit the site to discover recipes, but registered members can share their own dishes.
+            </p>
+        </div>
+    </section>
+{% endblock %}
