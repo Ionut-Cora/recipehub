@@ -26,25 +26,82 @@
 
     <section
         id="recent-recipes"
-        class="section"
+        class="section py-5"
         aria-labelledby="recent-recipes-heading"
     >
         <div class="container">
-            <div class="section-heading">
-                <p class="eyebrow">Explore new recipes</p>
+            <div class="section-heading text-center mb-4">
+                <p class="eyebrow">Explore something new</p>
 
                 <h2 id="recent-recipes-heading">
                     Recent recipes
                 </h2>
             </div>
 
-            <div class="empty-state">
-                <h3>Recipes are coming soon</h3>
+            {% if recent_recipes %}
+                <div class="row g-4">
+                    {% for recipe in recent_recipes %}
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <article class="card recipe-card h-100 shadow-sm">
+                                <div class="recipe-card-placeholder">
+                                    <span aria-hidden="true">🍽️</span>
+                                </div>
 
-                <p>
-                    Recent recipes will appear here soon.
-                </p>
-            </div>
+                                <div class="card-body d-flex flex-column">
+                                    <div class="mb-2">
+                                        <span class="badge recipe-category-badge">
+                                            {{ recipe.category.name }}
+                                        </span>
+
+                                        <span class="badge recipe-difficulty-badge">
+                                            {{ recipe.get_difficulty_display }}
+                                        </span>
+                                    </div>
+
+                                    <h3 class="card-title h4">
+                                        {{ recipe.title }}
+                                    </h3>
+
+                                    <p class="card-text text-secondary">
+                                        {{ recipe.summary|truncatewords:22 }}
+                                    </p>
+
+                                    <div class="recipe-meta mt-auto mb-3">
+                                        <span>
+                                            Prep: {{ recipe.preparation_time }} min
+                                        </span>
+
+                                        <span>
+                                            Cook: {{ recipe.cooking_time }} min
+                                        </span>
+                                    </div>
+
+                                    <p class="small text-secondary mb-3">
+                                        By {{ recipe.author.username }}
+                                    </p>
+
+                                    <a
+                                        class="btn recipe-button"
+                                        href="#"
+                                        aria-label="View {{ recipe.title }}"
+                                    >
+                                        View recipe
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <h3>No published recipes yet</h3>
+
+                    <p>
+                        Published recipes will appear here when they are
+                        added to RecipeHub.
+                    </p>
+                </div>
+            {% endif %}
         </div>
     </section>
 
