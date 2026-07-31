@@ -17,7 +17,7 @@
 
 
 /* ----------------------------------------
-   Reset and global styles
+   Global styles
 ---------------------------------------- */
 
 *,
@@ -55,94 +55,7 @@ a {
 
 
 /* ----------------------------------------
-   Header and navigation
----------------------------------------- */
-
-.site-logo {
-    color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.nav-link:hover,
-.nav-link:focus-visible {
-    color: var(--accent-color);
-}
-
-/* ========================================
-   Navigation
-======================================== */
-
-.recipehub-navbar {
-    background-color: #2F5D50;
-}
-
-.recipehub-navbar .navbar-brand {
-    color: #ffffff;
-    font-weight: 700;
-}
-
-.recipehub-navbar .navbar-brand:hover,
-.recipehub-navbar .navbar-brand:focus {
-    color: #D97745;
-}
-
-.recipehub-navbar .nav-link {
-    color: #ffffff;
-    font-weight: 500;
-}
-
-.recipehub-navbar .nav-link:hover,
-.recipehub-navbar .nav-link:focus {
-    color: #D97745;
-}
-
-.recipehub-navbar .nav-link.active {
-    color: #D97745 !important;
-}
-
-
-/* ----------------------------------------
-   Hero
----------------------------------------- */
-
-.hero {
-    display: grid;
-    min-height: 33rem;
-    place-items: center;
-    background:
-        linear-gradient(
-            rgb(30 64 55 / 88%),
-            rgb(30 64 55 / 88%)
-        ),
-        var(--primary-color);
-    color: var(--white-color);
-    text-align: center;
-}
-
-.hero-content {
-    max-width: 52rem;
-    padding-block: 5rem;
-}
-
-.hero h1 {
-    margin: 0 0 1rem;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(2.75rem, 8vw, 5.5rem);
-    line-height: 1;
-}
-
-.hero-text {
-    max-width: 42rem;
-    margin: 0 auto 2rem;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-}
-
-
-/* ----------------------------------------
-   Reusable content styles
+   Reusable Content Styles
 ---------------------------------------- */
 
 .section {
@@ -236,9 +149,97 @@ a {
     font-size: 1.1rem;
 }
 
+a:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 4px;
+}
+
 
 /* ----------------------------------------
-   Footer
+   Header & Navigation
+---------------------------------------- */
+
+.site-logo {
+    color: var(--primary-dark-color);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--accent-color);
+}
+
+.recipehub-navbar {
+    background-color: #2F5D50;
+}
+
+.recipehub-navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.recipehub-navbar .navbar-brand:hover,
+.recipehub-navbar .navbar-brand:focus {
+    color: #D97745;
+}
+
+.recipehub-navbar .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.recipehub-navbar .nav-link:hover,
+.recipehub-navbar .nav-link:focus {
+    color: #D97745;
+}
+
+.recipehub-navbar .nav-link.active {
+    color: #D97745 !important;
+}
+
+
+/* ----------------------------------------
+   Hero Section
+---------------------------------------- */
+
+.hero {
+    display: grid;
+    min-height: 33rem;
+    place-items: center;
+    background:
+        linear-gradient(
+            rgb(30 64 55 / 88%),
+            rgb(30 64 55 / 88%)
+        ),
+        var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 52rem;
+    padding-block: 5rem;
+}
+
+.hero h1 {
+    margin: 0 0 1rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.75rem, 8vw, 5.5rem);
+    line-height: 1;
+}
+
+.hero-text {
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+
+/* ----------------------------------------
+   Footer Section
 ---------------------------------------- */
 
 .site-footer {
@@ -254,17 +255,7 @@ a {
 
 
 /* ----------------------------------------
-   Keyboard accessibility
----------------------------------------- */
-
-a:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 4px;
-}
-
-
-/* ----------------------------------------
-   Responsive design
+   Responsive Design
 ---------------------------------------- */
 
 @media (max-width: 43.75rem) {
