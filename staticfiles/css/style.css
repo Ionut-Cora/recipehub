@@ -239,6 +239,76 @@ a:focus-visible {
 
 
 /* ----------------------------------------
+   Recipe Cards
+---------------------------------------- */
+
+.recipe-card {
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--white-color);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: var(--shadow-soft);
+}
+
+.recipe-card-placeholder {
+    display: grid;
+    min-height: 13rem;
+    place-items: center;
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-color),
+            var(--primary-dark-color)
+        );
+    font-size: 4rem;
+}
+
+.recipe-card .card-title {
+    color: var(--primary-dark-color);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.recipe-category-badge {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.recipe-difficulty-badge {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+}
+
+.recipe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    color: var(--text-light-color);
+    font-size: 0.9rem;
+}
+
+.recipe-button {
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 700;
+}
+
+.recipe-button:hover,
+.recipe-button:focus {
+    border-color: var(--primary-dark-color);
+    background-color: var(--primary-dark-color);
+    color: var(--white-color);
+}
+
+
+/* ----------------------------------------
    Footer Section
 ---------------------------------------- */
 
