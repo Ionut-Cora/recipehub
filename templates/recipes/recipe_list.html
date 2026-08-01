@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Browse Recipes | RecipeHub
+{% endblock %}
+
+{% block content %}
+    <section class="page-header py-5">
+        <div class="container text-center">
+            <p class="eyebrow">Discover something delicious</p>
+
+            <h1>Browse Recipes</h1>
+
+            <p class="page-header-text mx-auto">
+                Explore recipes shared by the RecipeHub community
+                and discover your next meal.
+            </p>
+        </div>
+    </section>
+
+    <section
+        class="section py-5"
+        aria-labelledby="recipe-list-heading"
+    >
+        <div class="container">
+            <h2
+                id="recipe-list-heading"
+                class="visually-hidden"
+            >
+                Published recipes
+            </h2>
+
+            {% if page_obj %}
+                <div class="row g-4">
+                    {% for recipe in page_obj %}
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <article class="card recipe-card h-100 shadow-sm">
+                                <div class="recipe-card-placeholder">
+                                    <span aria-hidden="true">🍽️</span>
+                                </div>
+
+                                <div class="card-body d-flex flex-column">
+                                    <div class="mb-2">
+                                        <span class="badge recipe-category-badge">
+                                            {{ recipe.category.name }}
+                                        </span>
+
+                                        <span class="badge recipe-difficulty-badge">
+                                            {{ recipe.get_difficulty_display }}
+                                        </span>
+                                    </div>
+
+                                    <h2 class="card-title h4">
+                                        {{ recipe.title }}
+                                    </h2>
+
+                                    <p class="card-text text-secondary">
+                                        {{ recipe.summary|truncatewords:24 }}
+                                    </p>
+
+                                    <div class="recipe-meta mt-auto mb-3">
+                                        <span>
+                                            Prep:
+                                            {{ recipe.preparation_time }} min
+                                        </span>
+
+                                        <span>
+                                            Cook:
+                                            {{ recipe.cooking_time }} min
+                                        </span>
+
+                                        <span>
+                                            Serves:
+                                            {{ recipe.servings }}
+                                        </span>
+                                    </div>
+
+                                    <p class="small text-secondary mb-3">
+                                        By {{ recipe.author.username }}
+                                    </p>
+
+                                    <a
+                                        class="btn recipe-button"
+                                        href="#"
+                                        aria-label="View {{ recipe.title }}"
+                                    >
+                                        View recipe
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if page_obj.paginator.num_pages > 1 %}
+                    <nav
+                        class="mt-5"
+                        aria-label="Recipe pagination"
+                    >
+                        <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a
+                                        class="page-link"
+                                        href="?page={{ page_obj.previous_page_number }}"
+                                        aria-label="Previous page"
+                                    >
+                                        Previous
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <span class="page-link">
+                                        Previous
+                                    </span>
+                                </li>
+                            {% endif %}
+
+                            {% for page_number in page_obj.paginator.page_range %}
+                                {% if page_number == page_obj.number %}
+                                    <li
+                                        class="page-item active"
+                                        aria-current="page"
+                                    >
+                                        <span class="page-link">
+                                            {{ page_number }}
+                                        </span>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a
+                                            class="page-link"
+                                            href="?page={{ page_number }}"
+                                        >
+                                            {{ page_number }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a
+                                        class="page-link"
+                                        href="?page={{ page_obj.next_page_number }}"
+                                        aria-label="Next page"
+                                    >
+                                        Next
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <span class="page-link">
+                                        Next
+                                    </span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+            {% else %}
+                <div class="empty-state">
+                    <h2>No published recipes found</h2>
+
+                    <p>
+                        Published recipes will appear here when they
+                        are added to RecipeHub.
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

@@ -200,6 +200,24 @@ a:focus-visible {
     color: #D97745 !important;
 }
 
+.page-header {
+    background-color: var(--primary-dark-color);
+    color: var(--white-color);
+}
+
+.page-header h1 {
+    margin-bottom: 1rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.page-header-text {
+    max-width: 42rem;
+    margin-bottom: 0;
+    color: var(--white-color);
+    font-size: 1.1rem;
+}
+
 
 /* ----------------------------------------
    Hero Section
@@ -305,6 +323,34 @@ a:focus-visible {
     border-color: var(--primary-dark-color);
     background-color: var(--primary-dark-color);
     color: var(--white-color);
+}
+
+
+/* ----------------------------------------
+   Pagination
+---------------------------------------- */
+
+.pagination .page-link {
+    color: var(--primary-dark-color);
+    border-color: var(--border-color);
+}
+
+.pagination .page-link:hover,
+.pagination .page-link:focus {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.pagination .page-item.active .page-link {
+    color: var(--white-color);
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.pagination .page-item.disabled .page-link {
+    color: var(--text-light-color);
+    background-color: var(--background-color);
 }
 
 
