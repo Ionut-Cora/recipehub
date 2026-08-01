@@ -327,6 +327,101 @@ a:focus-visible {
 
 
 /* ----------------------------------------
+   Recipe detail page
+---------------------------------------- */
+
+.recipe-detail-header {
+    background-color: var(--primary-dark-color);
+    color: var(--white-color);
+}
+
+.recipe-detail-header h1 {
+    margin-bottom: 1rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 7vw, 4.75rem);
+    line-height: 1.05;
+}
+
+.recipe-detail-summary {
+    max-width: 45rem;
+    color: var(--white-color);
+    font-size: 1.15rem;
+}
+
+.recipe-breadcrumb {
+    margin-bottom: 2rem;
+}
+
+.recipe-breadcrumb a {
+    color: var(--white-color);
+}
+
+.recipe-breadcrumb .active {
+    color: var(--border-color);
+}
+
+.recipe-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    color: var(--border-color);
+}
+
+.recipe-detail-placeholder {
+    display: grid;
+    min-height: 20rem;
+    place-items: center;
+    border: 1px solid rgb(255 255 255 / 25%);
+    border-radius: 1rem;
+    background: var(--accent-color);
+    box-shadow: var(--shadow-soft);
+    font-size: 6rem;
+}
+
+.recipe-facts-section {
+    background-color: var(--white-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recipe-fact {
+    height: 100%;
+    padding: 1rem;
+    border-right: 1px solid var(--border-color);
+}
+
+.recipe-fact-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--text-light-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.recipe-fact strong {
+    color: var(--primary-dark-color);
+    font-size: 1.1rem;
+}
+
+.recipe-content-panel {
+    height: 100%;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-soft);
+}
+
+.recipe-content-panel h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-dark-color);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.recipe-instructions p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ----------------------------------------
    Pagination
 ---------------------------------------- */
 
@@ -398,5 +493,9 @@ a:focus-visible {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         text-align: center;
+    }
+
+    .recipe-fact {
+        border-right: 0;
     }
 }

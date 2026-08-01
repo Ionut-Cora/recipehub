@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Recipe
 
@@ -44,3 +44,21 @@ def recipe_list(request):
     }
 
     return render(request, "recipes/recipe_list.html", context)
+
+
+def recipe_detail(request, slug):
+    """
+    Display the complete details of one published recipe.
+    """
+
+    recipe = get_object_or_404(
+        Recipe.objects.select_related("author", "category"),
+        slug=slug,
+        status=Recipe.Status.PUBLISHED,
+    )
+
+    context = {
+        "recipe": recipe,
+    }
+
+    return render(request, "recipes/recipe_detail.html", context)

@@ -82,7 +82,7 @@
 
                                     <a
                                         class="btn recipe-button"
-                                        href="#"
+                                        href="{% url 'recipes:recipe_detail' recipe.slug %}"
                                         aria-label="View {{ recipe.title }}"
                                     >
                                         View recipe

@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ recipe.title }} | RecipeHub
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header class="recipe-detail-header py-5">
+            <div class="container">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb recipe-breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'recipes:home' %}">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'recipes:recipe_list' %}">
+                                Recipes
+                            </a>
+                        </li>
+
+                        <li
+                            class="breadcrumb-item active"
+                            aria-current="page"
+                        >
+                            {{ recipe.title }}
+                        </li>
+                    </ol>
+                </nav>
+
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-lg-7">
+                        <div class="mb-3">
+                            <span class="badge recipe-category-badge">
+                                {{ recipe.category.name }}
+                            </span>
+
+                            <span class="badge recipe-difficulty-badge">
+                                {{ recipe.get_difficulty_display }}
+                            </span>
+                        </div>
+
+                        <h1>{{ recipe.title }}</h1>
+
+                        <p class="recipe-detail-summary">
+                            {{ recipe.summary }}
+                        </p>
+
+                        <p class="mb-0">
+                            By
+                            <strong>{{ recipe.author.username }}</strong>
+                            · Published
+                            <time datetime="{{ recipe.created_on|date:'Y-m-d' }}">
+                                {{ recipe.created_on|date:"j F Y" }}
+                            </time>
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-lg-5">
+                        <div
+                            class="recipe-detail-placeholder"
+                            role="img"
+                            aria-label="Placeholder image for {{ recipe.title }}"
+                        >
+                            <span aria-hidden="true">🍽️</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section
+            class="py-4 recipe-facts-section"
+            aria-label="Recipe information"
+        >
+            <div class="container">
+                <div class="row g-3 text-center">
+                    <div class="col-6 col-md">
+                        <div class="recipe-fact">
+                            <span class="recipe-fact-label">
+                                Preparation
+                            </span>
+
+                            <strong>
+                                {{ recipe.preparation_time }} min
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="recipe-fact">
+                            <span class="recipe-fact-label">
+                                Cooking
+                            </span>
+
+                            <strong>
+                                {{ recipe.cooking_time }} min
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="recipe-fact">
+                            <span class="recipe-fact-label">
+                                Total time
+                            </span>
+
+                            <strong>
+                                {{ recipe.total_time }} min
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="recipe-fact">
+                            <span class="recipe-fact-label">
+                                Servings
+                            </span>
+
+                            <strong>
+                                {{ recipe.servings }}
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md">
+                        <div class="recipe-fact">
+                            <span class="recipe-fact-label">
+                                Difficulty
+                            </span>
+
+                            <strong>
+                                {{ recipe.get_difficulty_display }}
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container py-5">
+            <div class="row g-5">
+                <section
+                    class="col-12 col-lg-4"
+                    aria-labelledby="ingredients-heading"
+                >
+                    <div class="recipe-content-panel">
+                        <h2 id="ingredients-heading">
+                            Ingredients
+                        </h2>
+
+                        <p class="text-secondary mb-0">
+                            Ingredients and quantities will appear here
+                            after the relational ingredient models are added.
+                        </p>
+                    </div>
+                </section>
+
+                <section
+                    class="col-12 col-lg-8"
+                    aria-labelledby="instructions-heading"
+                >
+                    <div class="recipe-content-panel">
+                        <h2 id="instructions-heading">
+                            Instructions
+                        </h2>
+
+                        <div class="recipe-instructions">
+                            {{ recipe.instructions|linebreaks }}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </article>
+{% endblock %}
