@@ -52,7 +52,9 @@ def recipe_detail(request, slug):
     """
 
     recipe = get_object_or_404(
-        Recipe.objects.select_related("author", "category"),
+        Recipe.objects
+        .select_related("author", "category")
+        .prefetch_related("recipe_ingredients__ingredient"),
         slug=slug,
         status=Recipe.Status.PUBLISHED,
     )

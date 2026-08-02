@@ -422,6 +422,42 @@ a:focus-visible {
 
 
 /* ----------------------------------------
+   Ingredient List
+---------------------------------------- */
+
+.ingredient-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ingredient-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-block: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ingredient-item:first-child {
+    padding-top: 0;
+}
+
+.ingredient-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.ingredient-item strong {
+    color: var(--primary-dark-color);
+}
+
+.ingredient-item small {
+    color: var(--text-light-color);
+}
+
+
+/* ----------------------------------------
    Pagination
 ---------------------------------------- */
 

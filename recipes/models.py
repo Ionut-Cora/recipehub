@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils.text import slugify
+from django.core.exceptions import ValidationError
 
 
 class Category(models.Model):
@@ -13,6 +14,23 @@ class Category(models.Model):
     class Meta:
         ordering = ["name"]
         verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.name
+
+
+class Ingredient(models.Model):
+    """
+    Represents an ingredient that can be used in multiple recipes.
+    """
+
+    name = models.CharField(
+        max_length=100,
+        unique=True,
+    )
+
+    class Meta:
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
@@ -125,3 +143,90 @@ class Recipe(models.Model):
             self.slug = slug
 
         super().save(*args, **kwargs)
+
+
+class RecipeIngredient(models.Model):
+    """
+    Connects a recipe to an ingredient with a quantity and unit.
+    """
+
+    class Unit(models.TextChoices):
+        GRAM = "g", "g"
+        KILOGRAM = "kg", "kg"
+        MILLILITRE = "ml", "ml"
+        LITRE = "l", "l"
+        TEASPOON = "tsp", "tsp"
+        TABLESPOON = "tbsp", "tbsp"
+        CUP = "cup", "cup"
+        PIECE = "piece", "piece"
+        SLICE = "slice", "slice"
+        CLOVE = "clove", "clove"
+        CAN = "can", "can"
+        TO_TASTE = "to_taste", "To taste"
+
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name="recipe_ingredients",
+    )
+
+    ingredient = models.ForeignKey(
+        Ingredient,
+        on_delete=models.PROTECT,
+        related_name="recipe_ingredients",
+    )
+
+    quantity = models.DecimalField(
+        max_digits=7,
+        decimal_places=2,
+        null=True,
+        blank=True,
+        help_text=(
+            "Leave empty when using a unit such as 'To taste'."
+        ),
+    )
+
+    unit = models.CharField(
+        max_length=20,
+        choices=Unit.choices,
+    )
+
+    preparation_note = models.CharField(
+        max_length=150,
+        blank=True,
+        help_text="Optional, for example: chopped or finely sliced.",
+    )
+
+    class Meta:
+        ordering = ["id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["recipe", "ingredient"],
+                name="unique_ingredient_per_recipe",
+            ),
+        ]
+
+    def clean(self):
+        """
+        Validate ingredient quantities and units.
+        """
+
+        if self.unit != self.Unit.TO_TASTE and self.quantity is None:
+            raise ValidationError(
+                {
+                    "quantity": (
+                        "A quantity is required unless the unit is "
+                        "'To taste'."
+                    )
+                }
+            )
+
+        if self.quantity is not None and self.quantity <= 0:
+            raise ValidationError(
+                {
+                    "quantity": "The quantity must be greater than zero."
+                }
+            )
+
+    def __str__(self):
+        return f"{self.ingredient.name} for {self.recipe.title}"

@@ -152,10 +152,35 @@
                             Ingredients
                         </h2>
 
-                        <p class="text-secondary mb-0">
-                            Ingredients and quantities will appear here
-                            after the relational ingredient models are added.
-                        </p>
+                        {% if recipe.recipe_ingredients.all %}
+                            <ul class="ingredient-list">
+                                {% for recipe_ingredient in recipe.recipe_ingredients.all %}
+                                    <li class="ingredient-item">
+                                        <span>
+                                            <strong>
+                                                {% if recipe_ingredient.quantity %}
+                                                    {{ recipe_ingredient.quantity|floatformat:"-2" }}
+                                                {% endif %}
+
+                                                {{ recipe_ingredient.get_unit_display }}
+                                            </strong>
+
+                                            {{ recipe_ingredient.ingredient.name }}
+                                        </span>
+
+                                        {% if recipe_ingredient.preparation_note %}
+                                            <small>
+                                                {{ recipe_ingredient.preparation_note }}
+                                            </small>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="text-secondary mb-0">
+                                No ingredients have been added yet.
+                            </p>
+                        {% endif %}
                     </div>
                 </section>
 
