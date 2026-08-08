@@ -9,6 +9,11 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("recipes/", views.recipe_list, name="recipe_list"),
     path(
+        "recipes/create/",
+        views.recipe_create,
+        name="recipe_create",
+    ),
+    path(
         "recipes/<slug:slug>/",
         views.recipe_detail,
         name="recipe_detail",

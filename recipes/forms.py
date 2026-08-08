@@ -1,4 +1,6 @@
 from allauth.account.forms import LoginForm, SignupForm
+from django import forms
+from .models import Recipe
 
 
 class RecipeHubSignupForm(SignupForm):
@@ -32,3 +34,73 @@ class RecipeHubLoginForm(LoginForm):
                         "class": "form-control",
                     }
                 )
+
+
+class RecipeForm(forms.ModelForm):
+    """
+    Form used by authenticated users to create and edit recipes.
+    """
+
+    class Meta:
+        model = Recipe
+        fields = [
+            "category",
+            "title",
+            "summary",
+            "instructions",
+            "preparation_time",
+            "cooking_time",
+            "servings",
+            "difficulty",
+            "status",
+        ]
+
+        widgets = {
+            "category": forms.Select(
+                attrs={"class": "form-select"}
+            ),
+            "title": forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Recipe title",
+                }
+            ),
+            "summary": forms.Textarea(
+                attrs={
+                    "class": "form-control",
+                    "rows": 3,
+                    "placeholder": "Write a short recipe summary",
+                }
+            ),
+            "instructions": forms.Textarea(
+                attrs={
+                    "class": "form-control",
+                    "rows": 8,
+                    "placeholder": "Explain how to prepare the recipe",
+                }
+            ),
+            "preparation_time": forms.NumberInput(
+                attrs={
+                    "class": "form-control",
+                    "min": 0,
+                }
+            ),
+            "cooking_time": forms.NumberInput(
+                attrs={
+                    "class": "form-control",
+                    "min": 0,
+                }
+            ),
+            "servings": forms.NumberInput(
+                attrs={
+                    "class": "form-control",
+                    "min": 1,
+                }
+            ),
+            "difficulty": forms.Select(
+                attrs={"class": "form-select"}
+            ),
+            "status": forms.Select(
+                attrs={"class": "form-select"}
+            ),
+        }

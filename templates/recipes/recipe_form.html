@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Create Recipe | RecipeHub
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="form-card">
+                    <div class="mb-4">
+                        <p class="eyebrow">Share your cooking</p>
+
+                        <h1>Create a new recipe</h1>
+
+                        <p class="text-secondary">
+                            Add the main details of your recipe.
+                            Ingredients will be added in a later step.
+                        </p>
+                    </div>
+
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+
+                        {% if form.non_field_errors %}
+                            <div
+                                class="alert alert-danger"
+                                role="alert"
+                            >
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+
+                        {% for field in form %}
+                            <div class="mb-3">
+                                <label
+                                    class="form-label"
+                                    for="{{ field.id_for_label }}"
+                                >
+                                    {{ field.label }}
+                                </label>
+
+                                {{ field }}
+
+                                {% if field.help_text %}
+                                    <div class="form-text">
+                                        {{ field.help_text }}
+                                    </div>
+                                {% endif %}
+
+                                {% for error in field.errors %}
+                                    <div class="text-danger small mt-1">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+
+                        <div class="d-flex gap-2 flex-wrap">
+                            <button
+                                class="btn recipe-button"
+                                type="submit"
+                            >
+                                Create recipe
+                            </button>
+
+                            <a
+                                class="btn btn-outline-secondary"
+                                href="{% url 'recipes:recipe_list' %}"
+                            >
+                                Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

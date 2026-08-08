@@ -1,7 +1,10 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render
-
 from .models import Recipe
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
+from .forms import RecipeForm
 
 
 def home(request):
@@ -64,3 +67,40 @@ def recipe_detail(request, slug):
     }
 
     return render(request, "recipes/recipe_detail.html", context)
+
+
+@login_required
+def recipe_create(request):
+    """
+    Allow an authenticated user to create a new recipe.
+    """
+
+    if request.method == "POST":
+        form = RecipeForm(request.POST)
+
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.author = request.user
+            recipe.save()
+
+            messages.success(
+                request,
+                "Your recipe has been created successfully.",
+            )
+
+            return redirect(
+                "recipes:recipe_detail",
+                slug=recipe.slug,
+            )
+    else:
+        form = RecipeForm()
+
+    context = {
+        "form": form,
+    }
+
+    return render(
+        request,
+        "recipes/recipe_form.html",
+        context,
+    )

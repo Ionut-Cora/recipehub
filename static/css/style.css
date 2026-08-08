@@ -458,6 +458,35 @@ a:focus-visible {
 
 
 /* ----------------------------------------
+   Recipe Forms
+---------------------------------------- */
+
+.form-card {
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-soft);
+}
+
+.form-card h1 {
+    color: var(--primary-dark-color);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.form-label {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgb(47 93 80 / 20%);
+}
+
+
+/* ----------------------------------------
    Pagination
 ---------------------------------------- */
 
