@@ -152,3 +152,8 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+ACCOUNT_FORMS = {
+    "signup": "recipes.forms.RecipeHubSignupForm",
+    "login": "recipes.forms.RecipeHubLoginForm",
+}

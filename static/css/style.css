@@ -502,6 +502,39 @@ a:focus-visible {
 
 
 /* ----------------------------------------
+   Authentication Pages
+---------------------------------------- */
+
+.auth-section {
+    min-height: 70vh;
+    background-color: var(--background-color);
+}
+
+.auth-card {
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-soft);
+}
+
+.auth-card h1 {
+    color: var(--primary-dark-color);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.auth-card a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.auth-card a:hover,
+.auth-card a:focus {
+    color: var(--accent-color);
+}
+
+
+/* ----------------------------------------
    Responsive Design
 ---------------------------------------- */
 
