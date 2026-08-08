@@ -57,6 +57,17 @@
                                 {{ recipe.created_on|date:"j F Y" }}
                             </time>
                         </p>
+
+                        {% if user == recipe.author %}
+                            <div class="mt-4">
+                                <a
+                                    class="btn recipe-button"
+                                    href="{% url 'recipes:recipe_edit' recipe.slug %}"
+                                >
+                                    Edit recipe
+                                </a>
+                            </div>
+                        {% endif %}
                     </div>
 
                     <div class="col-12 col-lg-5">

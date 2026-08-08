@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Recipe
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -97,6 +97,52 @@ def recipe_create(request):
 
     context = {
         "form": form,
+    }
+
+    return render(
+        request,
+        "recipes/recipe_form.html",
+        context,
+    )
+
+
+@login_required
+def recipe_edit(request, slug):
+    """
+    Allow the recipe author to edit their own recipe.
+    """
+
+    recipe = get_object_or_404(
+        Recipe,
+        slug=slug,
+        author=request.user,
+    )
+
+    if request.method == "POST":
+        form = RecipeForm(
+            request.POST,
+            instance=recipe,
+        )
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(
+                request,
+                "Your recipe has been updated successfully.",
+            )
+
+            return redirect(
+                "recipes:recipe_detail",
+                slug=recipe.slug,
+            )
+    else:
+        form = RecipeForm(instance=recipe)
+
+    context = {
+        "form": form,
+        "recipe": recipe,
+        "is_editing": True,
     }
 
     return render(

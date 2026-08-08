@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Create Recipe | RecipeHub
+    {% if is_editing %}
+        Edit {{ recipe.title }} | RecipeHub
+    {% else %}
+        Create Recipe | RecipeHub
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -11,13 +15,28 @@
             <div class="col-12 col-lg-8">
                 <div class="form-card">
                     <div class="mb-4">
-                        <p class="eyebrow">Share your cooking</p>
+                        <p class="eyebrow">
+                            {% if is_editing %}
+                                Update your recipe
+                            {% else %}
+                                Share your cooking
+                            {% endif %}
+                        </p>
 
-                        <h1>Create a new recipe</h1>
+                        <h1>
+                            {% if is_editing %}
+                                Edit recipe
+                            {% else %}
+                                Create a new recipe
+                            {% endif %}
+                        </h1>
 
                         <p class="text-secondary">
-                            Add the main details of your recipe.
-                            Ingredients will be added in a later step.
+                            {% if is_editing %}
+                                Update the details below and save your changes.
+                            {% else %}
+                                Add the main details of your recipe.
+                            {% endif %}
                         </p>
                     </div>
 
@@ -63,12 +82,22 @@
                                 class="btn recipe-button"
                                 type="submit"
                             >
-                                Create recipe
+                                {% if is_editing %}
+                                    Save changes
+                                {% else %}
+                                    Create recipe
+                                {% endif %}
                             </button>
 
                             <a
                                 class="btn btn-outline-secondary"
-                                href="{% url 'recipes:recipe_list' %}"
+                                href="
+                                    {% if is_editing %}
+                                        {% url 'recipes:recipe_detail' recipe.slug %}
+                                    {% else %}
+                                        {% url 'recipes:recipe_list' %}
+                                    {% endif %}
+                                "
                             >
                                 Cancel
                             </a>
