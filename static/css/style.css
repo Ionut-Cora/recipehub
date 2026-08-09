@@ -487,6 +487,24 @@ a:focus-visible {
 
 
 /* ----------------------------------------
+   Delete Confirmation
+---------------------------------------- */
+
+.delete-card {
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-soft);
+}
+
+.delete-card h1 {
+    color: var(--primary-dark-color);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* ----------------------------------------
    Pagination
 ---------------------------------------- */
 

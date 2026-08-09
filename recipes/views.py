@@ -150,3 +150,36 @@ def recipe_edit(request, slug):
         "recipes/recipe_form.html",
         context,
     )
+
+
+@login_required
+def recipe_delete(request, slug):
+    """
+    Allow the recipe author to delete their own recipe.
+    """
+
+    recipe = get_object_or_404(
+        Recipe,
+        slug=slug,
+        author=request.user,
+    )
+
+    if request.method == "POST":
+        recipe.delete()
+
+        messages.success(
+            request,
+            "Your recipe has been deleted successfully.",
+        )
+
+        return redirect("recipes:recipe_list")
+
+    context = {
+        "recipe": recipe,
+    }
+
+    return render(
+        request,
+        "recipes/recipe_confirm_delete.html",
+        context,
+    )

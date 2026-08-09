@@ -59,12 +59,19 @@
                         </p>
 
                         {% if user == recipe.author %}
-                            <div class="mt-4">
+                            <div class="mt-4 d-flex gap-2 flex-wrap">
                                 <a
                                     class="btn recipe-button"
                                     href="{% url 'recipes:recipe_edit' recipe.slug %}"
                                 >
                                     Edit recipe
+                                </a>
+
+                                <a
+                                    class="btn btn-outline-danger"
+                                    href="{% url 'recipes:recipe_delete' recipe.slug %}"
+                                >
+                                    Delete recipe
                                 </a>
                             </div>
                         {% endif %}
