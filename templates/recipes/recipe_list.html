@@ -30,6 +30,80 @@
                 Published recipes
             </h2>
 
+            <form
+                method="get"
+                class="row g-3 align-items-end mb-5"
+                aria-label="Search and filter recipes"
+            >
+                <div class="col-12 col-md-6">
+                    <label
+                        class="form-label"
+                        for="recipe-search"
+                    >
+                        Search recipes
+                    </label>
+
+                    <input
+                        class="form-control"
+                        type="search"
+                        id="recipe-search"
+                        name="q"
+                        value="{{ search_query }}"
+                        placeholder="Search by title or ingredient"
+                    >
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <label
+                        class="form-label"
+                        for="category-filter"
+                    >
+                        Category
+                    </label>
+
+                    <select
+                        class="form-select"
+                        id="category-filter"
+                        name="category"
+                    >
+                        <option value="">
+                            All categories
+                        </option>
+
+                        {% for category in categories %}
+                            <option
+                                value="{{ category.id }}"
+                                {% if selected_category == category.id|stringformat:"s" %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ category.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-2 d-grid">
+                    <button
+                        class="btn recipe-button"
+                        type="submit"
+                    >
+                        Search
+                    </button>
+                </div>
+            </form>
+
+            {% if search_query or selected_category %}
+                <div class="mb-4">
+                    <a
+                        class="btn btn-outline-secondary"
+                        href="{% url 'recipes:recipe_list' %}"
+                    >
+                        Clear filters
+                    </a>
+                </div>
+            {% endif %}
+
             {% if page_obj %}
                 <div class="row g-4">
                     {% for recipe in page_obj %}
@@ -172,12 +246,18 @@
                 {% endif %}
             {% else %}
                 <div class="empty-state">
-                    <h2>No published recipes found</h2>
+                    <h2>No recipes found</h2>
 
                     <p>
-                        Published recipes will appear here when they
-                        are added to RecipeHub.
+                        Try changing your search term or category filter.
                     </p>
+
+                    <a
+                        class="btn recipe-button mt-3"
+                        href="{% url 'recipes:recipe_list' %}"
+                    >
+                        View all recipes
+                    </a>
                 </div>
             {% endif %}
         </div>

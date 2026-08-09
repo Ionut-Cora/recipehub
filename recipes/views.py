@@ -1,10 +1,11 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Recipe
+from .models import Category, Recipe
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from .forms import RecipeForm
+from django.db.models import Q
 
 
 def home(request):
@@ -28,25 +29,53 @@ def home(request):
 
 def recipe_list(request):
     """
-    Display all published recipes with pagination.
+    Display published recipes with search, category filtering,
+    and pagination.
     """
 
     published_recipes = (
         Recipe.objects
         .filter(status=Recipe.Status.PUBLISHED)
         .select_related("author", "category")
+        .prefetch_related("recipe_ingredients__ingredient")
         .order_by("-created_on")
     )
+
+    search_query = request.GET.get("q", "").strip()
+    category_id = request.GET.get("category", "").strip()
+
+    if search_query:
+        published_recipes = published_recipes.filter(
+            Q(title__icontains=search_query)
+            | Q(
+                recipe_ingredients__ingredient__name__icontains=
+                search_query
+            )
+        ).distinct()
+
+    if category_id:
+        published_recipes = published_recipes.filter(
+            category_id=category_id
+        )
 
     paginator = Paginator(published_recipes, 6)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
+    categories = Category.objects.all()
+
     context = {
         "page_obj": page_obj,
+        "categories": categories,
+        "search_query": search_query,
+        "selected_category": category_id,
     }
 
-    return render(request, "recipes/recipe_list.html", context)
+    return render(
+        request,
+        "recipes/recipe_list.html",
+        context,
+    )
 
 
 def recipe_detail(request, slug):

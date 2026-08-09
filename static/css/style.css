@@ -501,6 +501,16 @@ a:focus-visible {
 
 
 /* ----------------------------------------
+   Recipe Search & Filters
+---------------------------------------- */
+
+.form-control,
+.form-select {
+    border-color: var(--border-color);
+}
+
+
+/* ----------------------------------------
    Delete Confirmation
 ---------------------------------------- */
 
