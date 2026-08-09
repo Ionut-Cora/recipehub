@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cloudinary_storage',
+    'cloudinary',
     'recipes',
 ]
 
@@ -156,4 +158,16 @@ LOGOUT_REDIRECT_URL = "/"
 ACCOUNT_FORMS = {
     "signup": "recipes.forms.RecipeHubSignupForm",
     "login": "recipes.forms.RecipeHubLoginForm",
+}
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": (
+            "whitenoise.storage."
+            "CompressedManifestStaticFilesStorage"
+        ),
+    },
 }

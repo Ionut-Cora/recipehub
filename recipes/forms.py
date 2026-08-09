@@ -47,6 +47,7 @@ class RecipeForm(forms.ModelForm):
             "category",
             "title",
             "summary",
+            "image",
             "instructions",
             "preparation_time",
             "cooking_time",
@@ -70,6 +71,12 @@ class RecipeForm(forms.ModelForm):
                     "class": "form-control",
                     "rows": 3,
                     "placeholder": "Write a short recipe summary",
+                }
+            ),
+            "image": forms.ClearableFileInput(
+                attrs={
+                    "class": "form-control",
+                    "accept": "image/*",
                 }
             ),
             "instructions": forms.Textarea(

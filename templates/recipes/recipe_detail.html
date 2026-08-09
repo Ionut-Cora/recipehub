@@ -78,13 +78,21 @@
                     </div>
 
                     <div class="col-12 col-lg-5">
-                        <div
-                            class="recipe-detail-placeholder"
-                            role="img"
-                            aria-label="Placeholder image for {{ recipe.title }}"
-                        >
-                            <span aria-hidden="true">🍽️</span>
-                        </div>
+                        {% if recipe.image %}
+                            <img
+                                src="{{ recipe.image.url }}"
+                                class="recipe-detail-image"
+                                alt="{{ recipe.title }}"
+                            >
+                        {% else %}
+                            <div
+                                class="recipe-detail-placeholder"
+                                role="img"
+                                aria-label="No image available for {{ recipe.title }}"
+                            >
+                                <span aria-hidden="true">🍽️</span>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

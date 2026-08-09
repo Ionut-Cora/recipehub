@@ -78,6 +78,12 @@ class Recipe(models.Model):
         help_text="Provide a short description of the recipe.",
     )
 
+    image = models.ImageField(
+        upload_to="recipe_images/",
+        blank=True,
+        null=True,
+    )
+
     instructions = models.TextField(
         help_text="Explain how to prepare the recipe.",
     )

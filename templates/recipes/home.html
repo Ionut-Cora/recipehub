@@ -43,9 +43,21 @@
                     {% for recipe in recent_recipes %}
                         <div class="col-12 col-md-6 col-lg-4">
                             <article class="card recipe-card h-100 shadow-sm">
-                                <div class="recipe-card-placeholder">
-                                    <span aria-hidden="true">🍽️</span>
-                                </div>
+                                {% if recipe.image %}
+                                    <img
+                                        src="{{ recipe.image.url }}"
+                                        class="card-img-top recipe-card-image"
+                                        alt="{{ recipe.title }}"
+                                    >
+                                {% else %}
+                                    <div
+                                        class="recipe-card-placeholder"
+                                        role="img"
+                                        aria-label="No image available for {{ recipe.title }}"
+                                    >
+                                        <span aria-hidden="true">🍽️</span>
+                                    </div>
+                                {% endif %}
 
                                 <div class="card-body d-flex flex-column">
                                     <div class="mb-2">
