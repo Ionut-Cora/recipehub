@@ -7,7 +7,16 @@ app_name = "recipes"
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("recipes/", views.recipe_list, name="recipe_list"),
+    path(
+        "dashboard/",
+        views.dashboard,
+        name="dashboard",
+    ),
+    path(
+        "recipes/", 
+        views.recipe_list, 
+        name="recipe_list"
+    ),
     path(
         "recipes/create/",
         views.recipe_create,

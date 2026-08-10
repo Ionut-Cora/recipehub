@@ -566,6 +566,16 @@ a:focus-visible {
 
 
 /* ----------------------------------------
+   Dashboard
+---------------------------------------- */
+
+#my-recipes-heading {
+    color: var(--primary-dark-color);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* ----------------------------------------
    Pagination
 ---------------------------------------- */
 

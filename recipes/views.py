@@ -291,3 +291,27 @@ def comment_delete(request, comment_id):
         "recipes:recipe_detail",
         slug=recipe_slug,
     )
+
+
+@login_required
+def dashboard(request):
+    """
+    Display the logged-in user's recipes.
+    """
+
+    user_recipes = (
+        Recipe.objects
+        .filter(author=request.user)
+        .select_related("category")
+        .order_by("-created_on")
+    )
+
+    context = {
+        "user_recipes": user_recipes,
+    }
+
+    return render(
+        request,
+        "recipes/dashboard.html",
+        context,
+    )
