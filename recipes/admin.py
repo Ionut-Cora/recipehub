@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Category, Ingredient, Recipe, RecipeIngredient
+from .models import Category, Comment, Ingredient, Recipe, RecipeIngredient
 
 
 @admin.register(Category)
@@ -79,3 +79,30 @@ class RecipeAdmin(admin.ModelAdmin):
     inlines = [
         RecipeIngredientInline,
     ]
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for recipe comments.
+    """
+
+    list_display = (
+        "author",
+        "recipe",
+        "created_on",
+    )
+
+    list_filter = (
+        "created_on",
+    )
+
+    search_fields = (
+        "author__username",
+        "recipe__title",
+        "body",
+    )
+
+    ordering = (
+        "-created_on",
+    )

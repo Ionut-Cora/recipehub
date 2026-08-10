@@ -224,6 +224,131 @@
                         </div>
                     </div>
                 </section>
+                
+                <section
+                    class="comments-section py-5"
+                    aria-labelledby="comments-heading"
+                >
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-lg-8">
+
+                                <h2
+                                    id="comments-heading"
+                                    class="mb-4"
+                                >
+                                    Comments
+                                </h2>
+
+                                {% if user.is_authenticated %}
+                                    <div class="comment-form-card mb-5">
+                                        <h3 class="h5">
+                                            Leave a comment
+                                        </h3>
+
+                                        <form
+                                            method="post"
+                                            action="{% url 'recipes:comment_create' recipe.slug %}"
+                                        >
+                                            {% csrf_token %}
+
+                                            {% for field in comment_form %}
+                                                <div class="mb-3">
+                                                    <label
+                                                        class="form-label"
+                                                        for="{{ field.id_for_label }}"
+                                                    >
+                                                        {{ field.label }}
+                                                    </label>
+
+                                                    {{ field }}
+
+                                                    {% for error in field.errors %}
+                                                        <div class="text-danger small mt-1">
+                                                            {{ error }}
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endfor %}
+
+                                            <button
+                                                class="btn recipe-button"
+                                                type="submit"
+                                            >
+                                                Post comment
+                                            </button>
+                                        </form>
+                                    </div>
+                                {% else %}
+                                    <div class="alert alert-light border mb-5">
+                                        <a href="{% url 'account_login' %}">
+                                            Log in
+                                        </a>
+                                        to leave a comment.
+                                    </div>
+                                {% endif %}
+
+
+                                {% if comments %}
+                                    <div class="comment-list">
+
+                                        {% for comment in comments %}
+                                            <article class="comment-card">
+
+                                                <div
+                                                    class="d-flex justify-content-between
+                                                    align-items-start gap-3"
+                                                >
+                                                    <div>
+                                                        <h3 class="h6 mb-1">
+                                                            {{ comment.author.username }}
+                                                        </h3>
+
+                                                        <p class="comment-date mb-0">
+                                                            <time
+                                                                datetime="{{ comment.created_on|date:'c' }}"
+                                                            >
+                                                                {{ comment.created_on|date:"j F Y, H:i" }}
+                                                            </time>
+                                                        </p>
+                                                    </div>
+
+                                                    {% if user == comment.author %}
+                                                        <form
+                                                            method="post"
+                                                            action="{% url 'recipes:comment_delete' comment.id %}"
+                                                        >
+                                                            {% csrf_token %}
+
+                                                            <button
+                                                                class="btn btn-sm btn-outline-danger"
+                                                                type="submit"
+                                                            >
+                                                                Delete
+                                                            </button>
+                                                        </form>
+                                                    {% endif %}
+                                                </div>
+
+                                                <p class="comment-body mb-0 mt-3">
+                                                    {{ comment.body }}
+                                                </p>
+
+                                            </article>
+                                        {% endfor %}
+
+                                    </div>
+
+                                {% else %}
+                                    <p class="text-secondary">
+                                        No comments yet. Be the first to share your thoughts.
+                                    </p>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </article>

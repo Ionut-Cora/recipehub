@@ -1,10 +1,10 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Category, Recipe
+from .models import Category, Comment, Recipe
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
-from .forms import RecipeForm
+from .forms import CommentForm, RecipeForm
 from django.db.models import Q
 
 
@@ -80,22 +80,37 @@ def recipe_list(request):
 
 def recipe_detail(request, slug):
     """
-    Display the complete details of one published recipe.
+    Display a published recipe and its comments.
     """
 
     recipe = get_object_or_404(
         Recipe.objects
         .select_related("author", "category")
-        .prefetch_related("recipe_ingredients__ingredient"),
+        .prefetch_related(
+            "recipe_ingredients__ingredient",
+            "comments__author",
+        ),
         slug=slug,
         status=Recipe.Status.PUBLISHED,
     )
 
+    comments = recipe.comments.select_related(
+        "author"
+    ).all()
+
+    comment_form = CommentForm()
+
     context = {
         "recipe": recipe,
+        "comments": comments,
+        "comment_form": comment_form,
     }
 
-    return render(request, "recipes/recipe_detail.html", context)
+    return render(
+        request,
+        "recipes/recipe_detail.html",
+        context,
+    )
 
 
 @login_required
@@ -215,4 +230,64 @@ def recipe_delete(request, slug):
         request,
         "recipes/recipe_confirm_delete.html",
         context,
+    )
+
+
+@login_required
+def comment_create(request, slug):
+    """
+    Allow an authenticated user to comment on a published recipe.
+    """
+
+    recipe = get_object_or_404(
+        Recipe,
+        slug=slug,
+        status=Recipe.Status.PUBLISHED,
+    )
+
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.recipe = recipe
+            comment.author = request.user
+            comment.save()
+
+            messages.success(
+                request,
+                "Your comment has been added.",
+            )
+
+    return redirect(
+        "recipes:recipe_detail",
+        slug=recipe.slug,
+    )
+
+
+@login_required
+def comment_delete(request, comment_id):
+    """
+    Allow a user to delete their own comment.
+    """
+
+    comment = get_object_or_404(
+        Comment,
+        id=comment_id,
+        author=request.user,
+    )
+
+    recipe_slug = comment.recipe.slug
+
+    if request.method == "POST":
+        comment.delete()
+
+        messages.success(
+            request,
+            "Your comment has been deleted.",
+        )
+
+    return redirect(
+        "recipes:recipe_detail",
+        slug=recipe_slug,
     )

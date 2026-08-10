@@ -1,6 +1,6 @@
 from allauth.account.forms import LoginForm, SignupForm
 from django import forms
-from .models import Recipe
+from .models import Comment, Recipe
 
 
 class RecipeHubSignupForm(SignupForm):
@@ -110,4 +110,30 @@ class RecipeForm(forms.ModelForm):
             "status": forms.Select(
                 attrs={"class": "form-select"}
             ),
+        }
+
+
+class CommentForm(forms.ModelForm):
+    """
+    Form used by authenticated users to comment on recipes.
+    """
+
+    class Meta:
+        model = Comment
+        fields = [
+            "body",
+        ]
+
+        widgets = {
+            "body": forms.Textarea(
+                attrs={
+                    "class": "form-control",
+                    "rows": 4,
+                    "placeholder": "Share your thoughts about this recipe...",
+                }
+            ),
+        }
+
+        labels = {
+            "body": "Your comment",
         }

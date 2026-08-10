@@ -24,6 +24,17 @@ urlpatterns = [
         name="recipe_delete",
     ),
     path(
+        "recipes/<slug:slug>/comment/",
+        views.comment_create,
+        name="comment_create",
+    ),
+
+    path(
+        "comments/<int:comment_id>/delete/",
+        views.comment_delete,
+        name="comment_delete",
+    ),
+    path(
         "recipes/<slug:slug>/",
         views.recipe_detail,
         name="recipe_detail",
