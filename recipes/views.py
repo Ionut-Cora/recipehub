@@ -1,11 +1,11 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Category, Comment, Recipe
+from .models import Category, Comment, Rating, Recipe
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
-from .forms import CommentForm, RecipeForm
-from django.db.models import Q
+from .forms import CommentForm, RatingForm, RecipeForm
+from django.db.models import Avg, Q
 
 
 def home(request):
@@ -94,6 +94,21 @@ def recipe_detail(request, slug):
         status=Recipe.Status.PUBLISHED,
     )
 
+    average_rating = recipe.ratings.aggregate(
+        average=Avg("score")
+    )["average"]
+
+    user_rating = None
+
+    if request.user.is_authenticated:
+        user_rating = recipe.ratings.filter(
+            user=request.user
+        ).first()
+
+    rating_form = RatingForm(
+        instance=user_rating
+    )
+
     comments = recipe.comments.select_related(
         "author"
     ).all()
@@ -104,6 +119,9 @@ def recipe_detail(request, slug):
         "recipe": recipe,
         "comments": comments,
         "comment_form": comment_form,
+        "average_rating": average_rating,
+        "rating_form": rating_form,
+        "user_rating": user_rating,
     }
 
     return render(
@@ -314,4 +332,50 @@ def dashboard(request):
         request,
         "recipes/dashboard.html",
         context,
+    )
+
+
+@login_required
+def recipe_rate(request, slug):
+    """
+    Allow a logged-in user to create or update a recipe rating.
+    """
+
+    recipe = get_object_or_404(
+        Recipe,
+        slug=slug,
+        status=Recipe.Status.PUBLISHED,
+    )
+
+    existing_rating = Rating.objects.filter(
+        recipe=recipe,
+        user=request.user,
+    ).first()
+
+    if request.method == "POST":
+        form = RatingForm(
+            request.POST,
+            instance=existing_rating,
+        )
+
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.recipe = recipe
+            rating.user = request.user
+            rating.save()
+
+            if existing_rating:
+                messages.success(
+                    request,
+                    "Your rating has been updated.",
+                )
+            else:
+                messages.success(
+                    request,
+                    "Your rating has been added.",
+                )
+
+    return redirect(
+        "recipes:recipe_detail",
+        slug=recipe.slug,
     )

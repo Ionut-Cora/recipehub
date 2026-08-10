@@ -44,6 +44,11 @@ urlpatterns = [
         name="comment_delete",
     ),
     path(
+        "recipes/<slug:slug>/rate/",
+        views.recipe_rate,
+        name="recipe_rate",
+    ),
+    path(
         "recipes/<slug:slug>/",
         views.recipe_detail,
         name="recipe_detail",

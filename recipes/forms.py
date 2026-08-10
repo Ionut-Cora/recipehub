@@ -1,6 +1,6 @@
 from allauth.account.forms import LoginForm, SignupForm
 from django import forms
-from .models import Comment, Recipe
+from .models import Comment, Rating, Recipe
 
 
 class RecipeHubSignupForm(SignupForm):
@@ -136,4 +136,28 @@ class CommentForm(forms.ModelForm):
 
         labels = {
             "body": "Your comment",
+        }
+
+
+class RatingForm(forms.ModelForm):
+    """
+    Form used by authenticated users to rate a recipe.
+    """
+
+    class Meta:
+        model = Rating
+        fields = [
+            "score",
+        ]
+
+        widgets = {
+            "score": forms.Select(
+                attrs={
+                    "class": "form-select",
+                }
+            ),
+        }
+
+        labels = {
+            "score": "Your rating",
         }

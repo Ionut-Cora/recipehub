@@ -271,3 +271,54 @@ class Comment(models.Model):
             f"Comment by {self.author.username} "
             f"on {self.recipe.title}"
         )
+
+
+class Rating(models.Model):
+    """
+    Represents a rating given by a registered user to a recipe.
+    """
+
+    class Score(models.IntegerChoices):
+        ONE = 1, "1 - Poor"
+        TWO = 2, "2 - Fair"
+        THREE = 3, "3 - Good"
+        FOUR = 4, "4 - Very Good"
+        FIVE = 5, "5 - Excellent"
+
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name="ratings",
+    )
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="recipe_ratings",
+    )
+
+    score = models.PositiveSmallIntegerField(
+        choices=Score.choices,
+    )
+
+    created_on = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    updated_on = models.DateTimeField(
+        auto_now=True,
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["recipe", "user"],
+                name="unique_user_recipe_rating",
+            ),
+        ]
+
+    def __str__(self):
+        return (
+            f"{self.user.username} rated "
+            f"{self.recipe.title}: {self.score}"
+        )

@@ -309,6 +309,39 @@ a:focus-visible {
 
 
 /* ----------------------------------------
+   Recipe Ratings
+---------------------------------------- */
+
+.rating-section {
+    background-color: var(--white-color);
+}
+
+.rating-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--background-color);
+}
+
+.rating-card h2 {
+    color: var(--primary-dark-color);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.recipe-rating-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.rating-stars {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+}
+
+
+/* ----------------------------------------
    Footer Section
 ---------------------------------------- */
 

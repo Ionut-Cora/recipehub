@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Category, Comment, Ingredient, Recipe, RecipeIngredient
+from .models import Category, Comment, Ingredient, Rating, Recipe, RecipeIngredient
 
 
 @admin.register(Category)
@@ -105,4 +105,33 @@ class CommentAdmin(admin.ModelAdmin):
 
     ordering = (
         "-created_on",
+    )
+
+
+@admin.register(Rating)
+class RatingAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for recipe ratings.
+    """
+
+    list_display = (
+        "user",
+        "recipe",
+        "score",
+        "created_on",
+        "updated_on",
+    )
+
+    list_filter = (
+        "score",
+        "created_on",
+    )
+
+    search_fields = (
+        "user__username",
+        "recipe__title",
+    )
+
+    ordering = (
+        "-updated_on",
     )
