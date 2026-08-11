@@ -1,4 +1,11 @@
 /* ----------------------------------------
+   Google Fonts
+---------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+/* ----------------------------------------
    Variables
 ---------------------------------------- */
 
@@ -18,6 +25,10 @@
     /* Layout */
     --shadow-soft: 0 0.75rem 2rem rgb(41 44 36 / 10%);
     --content-width: 75rem;
+
+    /* Typography */
+    --heading-font: "Lora", serif;
+    --body-font: "DM Sans", sans-serif;
 }
 
 
@@ -40,8 +51,29 @@ body {
     margin: 0;
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--body-font);
     line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: var(--body-font);
+}
+
+.btn {
+    font-family: var(--body-font);
+    font-weight: 600;
 }
 
 img {
@@ -75,7 +107,6 @@ a {
 .section h2 {
     margin: 0;
     color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.2;
 }
@@ -168,7 +199,6 @@ a:focus-visible {
 
 .site-logo {
     color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
     font-size: 1.6rem;
     font-weight: 700;
     text-decoration: none;
@@ -184,8 +214,11 @@ a:focus-visible {
 }
 
 .recipehub-navbar .navbar-brand {
-    color: #ffffff;
+    color: var(--white-color);
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
     font-weight: 700;
+    letter-spacing: 0.02rem;
 }
 
 .recipehub-navbar .navbar-brand:hover,
@@ -194,7 +227,8 @@ a:focus-visible {
 }
 
 .recipehub-navbar .nav-link {
-    color: #ffffff;
+    font-family: var(--body-font);
+    color: var(--white-color);
     font-weight: 500;
 }
 
@@ -215,7 +249,6 @@ a:focus-visible {
 
 .page-header h1 {
     margin-bottom: 1rem;
-    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2.5rem, 6vw, 4rem);
 }
 
@@ -250,14 +283,16 @@ a:focus-visible {
 }
 
 .hero h1 {
+    font-family: var(--heading-font);
+    font-weight: 700;
     margin: 0 0 1rem;
-    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2.75rem, 8vw, 5.5rem);
     line-height: 1;
     color: var(--primary-dark-color);
 }
 
 .hero-text {
+    font-family: var(--body-font);
     max-width: 42rem;
     margin: 0 auto 2rem;
     font-size: clamp(1rem, 2vw, 1.25rem);
@@ -313,7 +348,6 @@ a:focus-visible {
 
 .recipe-card .card-title {
     color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
 }
 
 .recipe-category-badge {
@@ -360,7 +394,6 @@ a:focus-visible {
 
 .recipe-detail-header h1 {
     margin-bottom: 1rem;
-    font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2.5rem, 7vw, 4.75rem);
     line-height: 1.05;
 }
@@ -436,7 +469,6 @@ a:focus-visible {
 .recipe-content-panel h2 {
     margin-bottom: 1.5rem;
     color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
 }
 
 .recipe-instructions p:last-child {
@@ -494,7 +526,6 @@ a:focus-visible {
 
 .form-card h1 {
     color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
 }
 
 .form-label {
@@ -533,7 +564,6 @@ a:focus-visible {
 
 .delete-card h1 {
     color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
 }
 
 
@@ -547,7 +577,6 @@ a:focus-visible {
 
 .comments-section h2 {
     color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
 }
 
 .comment-form-card,
@@ -580,7 +609,6 @@ a:focus-visible {
 
 #my-recipes-heading {
     color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
 }
 
 
@@ -647,7 +675,6 @@ a:focus-visible {
 
 .auth-card h1 {
     color: var(--primary-dark-color);
-    font-family: Georgia, "Times New Roman", serif;
 }
 
 .auth-card a {
