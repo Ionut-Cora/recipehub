@@ -6,21 +6,117 @@
 
 {% block content %}
     <section class="hero">
-        <div class="container hero-content">
-            <p class="eyebrow">Welcome to</p>
+        <div class="container">
+            <div class="row align-items-center g-5">
 
-            <h1>RecipeHub</h1>
+                <!-- Hero text -->
+                <div class="col-12 col-lg-6">
+                    <div class="hero-content">
+                        <p class="eyebrow">
+                            Welcome to
+                        </p>
 
-            <p class="hero-text">
-                Discover the recipes you want,  share your own ideas and learn how to preapare healthy meals.
-            </p>
+                        <h1>
+                            RecipeHub
+                        </h1>
 
-            <a
-                class="button button-primary"
-                href="{% url 'recipes:recipe_list' %}"
-            >
-                Browse recipes
-            </a>
+                        <p class="hero-text">
+                            Discover the recipes you want, share your own ideas and learn how to preapare healthy meals.
+                        </p>
+
+                        <a
+                            class="btn recipe-button"
+                            href="{% url 'recipes:recipe_list' %}"
+                        >
+                            Browse recipes
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- Featured recipe -->
+                <div class="col-12 col-lg-6">
+
+                    {% if featured_recipe %}
+                        <article class="hero-featured-recipe">
+
+                            {% if featured_recipe.image %}
+                                <img
+                                    src="{{ featured_recipe.image.url }}"
+                                    class="hero-featured-image"
+                                    alt="{{ featured_recipe.title }}"
+                                >
+                            {% else %}
+                                <div
+                                    class="hero-featured-placeholder"
+                                    role="img"
+                                    aria-label="No image available for {{ featured_recipe.title }}"
+                                >
+                                    <span aria-hidden="true">
+                                        🍽️
+                                    </span>
+                                </div>
+                            {% endif %}
+
+                            <div class="hero-featured-content">
+
+                                <div class="mb-2">
+                                    <span class="badge recipe-category-badge">
+                                        {{ featured_recipe.category.name }}
+                                    </span>
+
+                                    <span class="badge recipe-difficulty-badge">
+                                        {{ featured_recipe.get_difficulty_display }}
+                                    </span>
+                                </div>
+
+                                <p class="featured-label">
+                                    Latest recipe
+                                </p>
+
+                                <h2>
+                                    {{ featured_recipe.title }}
+                                </h2>
+
+                                <p>
+                                    {{ featured_recipe.summary|truncatewords:20 }}
+                                </p>
+
+                                <div class="recipe-meta mb-3">
+                                    <span>
+                                        Prep:
+                                        {{ featured_recipe.preparation_time }} min
+                                    </span>
+
+                                    <span>
+                                        Cook:
+                                        {{ featured_recipe.cooking_time }} min
+                                    </span>
+                                </div>
+
+                                <a
+                                    class="btn btn-outline-dark"
+                                    href="{% url 'recipes:recipe_detail' featured_recipe.slug %}"
+                                >
+                                    View latest recipe
+                                </a>
+
+                            </div>
+                        </article>
+
+                    {% else %}
+
+                        <div class="hero-featured-empty">
+                            <p class="mb-0">
+                                No published recipes yet.
+                            </p>
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
         </div>
     </section>
 
