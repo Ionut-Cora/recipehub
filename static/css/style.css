@@ -204,9 +204,9 @@ a:focus-visible {
     text-decoration: none;
 }
 
-.nav-link:hover,
-.nav-link:focus-visible {
-    color: var(--accent-color);
+#navbar .navbar-toggler:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .recipehub-navbar {
@@ -223,7 +223,7 @@ a:focus-visible {
 
 .recipehub-navbar .navbar-brand:hover,
 .recipehub-navbar .navbar-brand:focus {
-    color: var(--background-color);
+    color: var(--accent-color);
 }
 
 .recipehub-navbar .nav-link {
@@ -234,11 +234,11 @@ a:focus-visible {
 
 .recipehub-navbar .nav-link:hover,
 .recipehub-navbar .nav-link:focus {
-    color: var(--background-color);
+    color: var(--accent-color);
 }
 
 .recipehub-navbar .nav-link.active {
-    color: var(--background-color);
+    color: var(--accent-color);
     font-weight: 600;
 }
 
