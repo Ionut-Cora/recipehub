@@ -121,7 +121,10 @@
                                         role="img"
                                         aria-label="No image available for {{ recipe.title }}"
                                     >
-                                        <span aria-hidden="true">🍽️</span>
+                                        <i
+                                            class="fa-solid fa-utensils"
+                                            aria-hidden="true"
+                                        ></i>
                                     </div>
                                 {% endif %}
 
@@ -145,18 +148,27 @@
                                     </p>
 
                                     <div class="recipe-meta mt-auto mb-3">
-                                        <span>
-                                            Prep:
+                                        <span class="d-flex flex-row">
+                                            <i
+                                                class="fa-regular fa-clock recipe-detail-icon me-1"
+                                                aria-hidden="true"
+                                            ></i>
                                             {{ recipe.preparation_time }} min
                                         </span>
 
-                                        <span>
-                                            Cook:
+                                        <span class="d-flex flex-row">
+                                            <i
+                                                class="fa-solid fa-fire-burner recipe-detail-icon me-1"
+                                                aria-hidden="true"
+                                            ></i>
                                             {{ recipe.cooking_time }} min
                                         </span>
 
-                                        <span>
-                                            Serves:
+                                        <span class="d-flex flex-row">
+                                            <i
+                                                class="fa-solid fa-utensils recipe-detail-icon me-1"
+                                                aria-hidden="true"
+                                            ></i>
                                             {{ recipe.servings }}
                                         </span>
                                     </div>
