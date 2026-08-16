@@ -10,8 +10,8 @@ from django.db.models import Avg, Q
 
 def home(request):
     """
-    Display the homepage with the newest published recipe
-    and additional recent recipes.
+    Display the homepage with the newest published recipe,
+    recent recipes, and recipe categories.
     """
 
     published_recipes = (
@@ -24,9 +24,12 @@ def home(request):
     featured_recipe = published_recipes.first()
     recent_recipes = published_recipes[1:4]
 
+    categories = Category.objects.all()[:4]
+
     context = {
         "featured_recipe": featured_recipe,
         "recent_recipes": recent_recipes,
+        "categories": categories,
     }
 
     return render(

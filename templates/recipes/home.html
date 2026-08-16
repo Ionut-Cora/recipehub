@@ -173,6 +173,105 @@
         </div>
     </section>
 
+    <!-- Browse by Category -->
+    <section
+        class="category-section py-5"
+        aria-labelledby="category-heading"
+    >
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <p class="eyebrow">
+                    Find your next dish
+                </p>
+
+                <h2 id="category-heading">
+                    Browse by Category
+                </h2>
+
+                <p class="section-intro mx-auto">
+                    Explore recipes by category and find something
+                    delicious for any time of day.
+                </p>
+            </div>
+
+            {% if categories %}
+                <div class="row g-4">
+
+                    {% for category in categories %}
+                        <div class="col-12 col-sm-6 col-lg-3">
+
+                            <a
+                                class="category-card"
+                                href="{% url 'recipes:recipe_list' %}?category={{ category.id }}"
+                                aria-label="Browse {{ category.name }} recipes"
+                            >
+
+                                <div class="category-icon">
+                                    {% if category.name == "Breakfast" %}
+                                        <i
+                                            class="fa-solid fa-mug-hot"
+                                            aria-hidden="true"
+                                        ></i>
+
+                                    {% elif category.name == "Lunch" %}
+                                        <i
+                                            class="fa-solid fa-bowl-food"
+                                            aria-hidden="true"
+                                        ></i>
+
+                                    {% elif category.name == "Dinner" %}
+                                        <i
+                                            class="fa-solid fa-utensils"
+                                            aria-hidden="true"
+                                        ></i>
+
+                                    {% elif category.name == "Desserts" %}
+                                        <i
+                                            class="fa-solid fa-cake-candles"
+                                            aria-hidden="true"
+                                        ></i>
+
+                                    {% else %}
+                                        <i
+                                            class="fa-solid fa-carrot"
+                                            aria-hidden="true"
+                                        ></i>
+                                    {% endif %}
+                                </div>
+
+                                <h3>
+                                    {{ category.name }}
+                                </h3>
+
+                                <span class="category-link-text">
+                                    Explore recipes
+
+                                    <i
+                                        class="fa-solid fa-arrow-right"
+                                        aria-hidden="true"
+                                    ></i>
+                                </span>
+
+                            </a>
+
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% else %}
+
+                <div class="empty-state text-center">
+                    <p class="mb-0">
+                        Recipe categories will appear here soon.
+                    </p>
+                </div>
+
+            {% endif %}
+
+        </div>
+    </section>
+
     <section
         id="recent-recipes"
         class="section py-5"
