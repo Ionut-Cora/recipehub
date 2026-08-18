@@ -575,6 +575,102 @@
         </div>
     </section>
 
+    <!-- Statistics Section -->
+    <section
+        class="statistics-section py-5"
+        aria-labelledby="statistics-heading"
+    >
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <p class="eyebrow">
+                    RecipeHub community
+                </p>
+
+                <h2 id="statistics-heading">
+                    Lets Grow Together
+                </h2>
+
+                <p class="section-intro mx-auto">
+                    Discover how the RecipeHub community is growing
+                    through shared recipes, conversations and ratings.
+                </p>
+            </div>
+
+            <div class="row g-4 text-center">
+
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <i
+                            class="fa-solid fa-book-open stat-icon"
+                            aria-hidden="true"
+                        ></i>
+
+                        <strong class="stat-number">
+                            {{ statistics.recipes }}
+                        </strong>
+
+                        <span class="stat-label">
+                            Published Recipes
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <i
+                            class="fa-solid fa-users stat-icon"
+                            aria-hidden="true"
+                        ></i>
+
+                        <strong class="stat-number">
+                            {{ statistics.members }}
+                        </strong>
+
+                        <span class="stat-label">
+                            Members
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <i
+                            class="fa-regular fa-comments stat-icon"
+                            aria-hidden="true"
+                        ></i>
+
+                        <strong class="stat-number">
+                            {{ statistics.comments }}
+                        </strong>
+
+                        <span class="stat-label">
+                            Comments
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <i
+                            class="fa-solid fa-star stat-icon"
+                            aria-hidden="true"
+                        ></i>
+
+                        <strong class="stat-number">
+                            {{ statistics.ratings }}
+                        </strong>
+
+                        <span class="stat-label">
+                            Ratings
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section
         id="about"
         class="section section-accent"

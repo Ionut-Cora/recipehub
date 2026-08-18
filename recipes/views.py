@@ -6,12 +6,13 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from .forms import CommentForm, RatingForm, RecipeForm
 from django.db.models import Avg, Q
+from django.contrib.auth import get_user_model
 
 
 def home(request):
     """
     Display the homepage with featured, recent, category,
-    and top-rated recipe content.
+    top-rated, and community statistics content.
     """
 
     published_recipes = (
@@ -35,11 +36,23 @@ def home(request):
         .order_by("-average_rating", "-created_on")[:3]
     )
 
+    User = get_user_model()
+
+    statistics = {
+        "recipes": Recipe.objects.filter(
+            status=Recipe.Status.PUBLISHED
+        ).count(),
+        "members": User.objects.count(),
+        "comments": Comment.objects.count(),
+        "ratings": Rating.objects.count(),
+    }
+
     context = {
         "featured_recipe": featured_recipe,
         "recent_recipes": recent_recipes,
         "categories": categories,
         "top_rated_recipes": top_rated_recipes,
+        "statistics": statistics,
     }
 
     return render(
