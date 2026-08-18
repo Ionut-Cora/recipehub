@@ -10,8 +10,8 @@ from django.db.models import Avg, Q
 
 def home(request):
     """
-    Display the homepage with the newest published recipe,
-    recent recipes, and recipe categories.
+    Display the homepage with featured, recent, category,
+    and top-rated recipe content.
     """
 
     published_recipes = (
@@ -26,10 +26,20 @@ def home(request):
 
     categories = Category.objects.all()[:4]
 
+    top_rated_recipes = (
+        Recipe.objects
+        .filter(status=Recipe.Status.PUBLISHED)
+        .annotate(average_rating=Avg("ratings__score"))
+        .filter(average_rating__isnull=False)
+        .select_related("author", "category")
+        .order_by("-average_rating", "-created_on")[:3]
+    )
+
     context = {
         "featured_recipe": featured_recipe,
         "recent_recipes": recent_recipes,
         "categories": categories,
+        "top_rated_recipes": top_rated_recipes,
     }
 
     return render(

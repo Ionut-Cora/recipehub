@@ -455,7 +455,9 @@ a:focus-visible {
 }
 
 
-/* Empty featured recipe */
+/* ----------------------------------------
+   Empty Featured Recipe
+---------------------------------------- */
 
 .hero-featured-empty {
     padding: 3rem;
@@ -580,6 +582,77 @@ a:focus-visible {
     margin-right: 0.15rem;
     color: var(--primary-dark-color);
     font-weight: 600;
+}
+
+
+/* ----------------------------------------
+   Community favourites
+---------------------------------------- */
+
+.community-favourites {
+    background-color: var(--background-color);
+}
+
+.community-favourites h2 {
+    color: var(--primary-dark-color);
+}
+
+.favourite-recipe-card {
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-soft);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.favourite-recipe-card:hover {
+    transform: translateY(-0.3rem);
+}
+
+.favourite-recipe-image {
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+}
+
+.favourite-recipe-placeholder {
+    display: grid;
+    height: 14rem;
+    place-items: center;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-size: 3.5rem;
+}
+
+.favourite-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.favourite-rating strong {
+    color: var(--primary-dark-color);
+}
+
+.rating-stars {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.favourite-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    color: var(--text-light-color);
+    font-size: 0.85rem;
+}
+
+.favourite-meta i {
+    margin-right: 0.25rem;
+    color: var(--accent-color);
 }
 
 
