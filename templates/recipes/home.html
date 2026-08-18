@@ -671,6 +671,86 @@
         </div>
     </section>
 
+    <!-- Community Call to Action Section -->
+    <section
+        class="community-cta py-5"
+        aria-labelledby="community-cta-heading"
+    >
+        <div class="container">
+            <div class="community-cta-card text-center">
+
+                {% if user.is_authenticated %}
+
+                    <p class="eyebrow">
+                        Share your cooking
+                    </p>
+
+                    <h2 id="community-cta-heading">
+                        What are you cooking today?
+                    </h2>
+
+                    <p class="community-cta-text mx-auto">
+                        Share your latest creation with the RecipeHub
+                        community and inspire other home cooks.
+                    </p>
+
+                    <a
+                        class="btn community-cta-button"
+                        href="{% url 'recipes:recipe_create' %}"
+                    >
+                        <i
+                            class="fa-solid fa-plus me-2"
+                            aria-hidden="true"
+                        ></i>
+
+                        Add a Recipe
+                    </a>
+
+                {% else %}
+
+                    <p class="eyebrow">
+                        Join RecipeHub
+                    </p>
+
+                    <h2 id="community-cta-heading">
+                        Have a recipe worth sharing?
+                    </h2>
+
+                    <p class="community-cta-text mx-auto">
+                        Create a free RecipeHub account and share
+                        your favourite dishes with our growing community.
+                    </p>
+
+                    <div
+                        class="d-flex justify-content-center
+                        gap-3 flex-wrap"
+                    >
+                        <a
+                            class="btn community-cta-button"
+                            href="{% url 'account_signup' %}"
+                        >
+                            <i
+                                class="fa-solid fa-user-plus me-2"
+                                aria-hidden="true"
+                            ></i>
+
+                            Create an Account
+                        </a>
+
+                        <a
+                            class="btn community-cta-outline"
+                            href="{% url 'account_login' %}"
+                        >
+                            Log In
+                        </a>
+                    </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+
     <section
         id="about"
         class="section section-accent"
