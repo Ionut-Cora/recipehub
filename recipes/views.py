@@ -414,3 +414,13 @@ def recipe_rate(request, slug):
         "recipes:recipe_detail",
         slug=recipe.slug,
     )
+
+
+def about(request):
+    """
+    Display information about RecipeHub project.
+    """
+    return render(
+        request,
+        "recipes/about.html",
+    )
