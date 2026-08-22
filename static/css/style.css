@@ -1,13 +1,9 @@
-/* ----------------------------------------
-   Google Fonts
----------------------------------------- */
+/* Google Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 
-/* ----------------------------------------
-   Variables
----------------------------------------- */
+/* CSS Variables */
 
 :root {
     /* Brand colours - Olive & Cream */
@@ -32,9 +28,7 @@
 }
 
 
-/* ----------------------------------------
-   Global styles
----------------------------------------- */
+/* Global Styles */
 
 *,
 *::before,
@@ -91,9 +85,7 @@ a {
 }
 
 
-/* ----------------------------------------
-   Reusable Content Styles
----------------------------------------- */
+/* Reusable Content Styles */
 
 .section {
     padding-block: 5rem;
@@ -192,10 +184,19 @@ a:focus-visible {
     outline-offset: 4px;
 }
 
+/* Recipe card image placeholder */
 
-/* ----------------------------------------
-   Header & Navigation
----------------------------------------- */
+.recipe-card-placeholder {
+    display: grid;
+    height: 14rem;
+    place-items: center;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-size: 3.5rem;
+}
+
+
+/* Header & Navigation */
 
 .site-logo {
     color: var(--primary-dark-color);
@@ -260,9 +261,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Hero Section
----------------------------------------- */
+/* Hero Section */
 
 .hero {
     padding: 5rem 0;
@@ -293,9 +292,7 @@ a:focus-visible {
     line-height: 1.7;
 }
 
-/* ----------------------------------------
-   Hero featured recipe
----------------------------------------- */
+/* Hero featured recipe */
 
 .hero-featured-recipe {
     overflow: hidden;
@@ -349,9 +346,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Browse by Category
----------------------------------------- */
+/* Browse by Category Section Style */
 
 .category-section {
     background-color: var(--white-color);
@@ -455,9 +450,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Empty Featured Recipe
----------------------------------------- */
+/* Empty Featured Recipe Style */
 
 .hero-featured-empty {
     padding: 3rem;
@@ -475,9 +468,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Recipe Cards
----------------------------------------- */
+/* Recipe Cards */
 
 .recipe-card {
     overflow: hidden;
@@ -492,19 +483,6 @@ a:focus-visible {
 .recipe-card:hover {
     transform: translateY(-0.3rem);
     box-shadow: var(--shadow-soft);
-}
-
-.recipe-card-placeholder {
-    display: grid;
-    min-height: 13rem;
-    place-items: center;
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary-color),
-            var(--primary-dark-color)
-        );
-    font-size: 4rem;
 }
 
 .recipe-card-image {
@@ -585,9 +563,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Community favourites
----------------------------------------- */
+/* Community Favourites Section */
 
 .community-favourites {
     background-color: var(--background-color);
@@ -616,15 +592,6 @@ a:focus-visible {
     width: 100%;
     height: 14rem;
     object-fit: cover;
-}
-
-.favourite-recipe-placeholder {
-    display: grid;
-    height: 14rem;
-    place-items: center;
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    font-size: 3.5rem;
 }
 
 .favourite-rating {
@@ -656,9 +623,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Statistics Section
----------------------------------------- */
+/* Statistics Section */
 
 .statistics-section {
     background-color: var(--white-color);
@@ -699,9 +664,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Community Call to Action Section
----------------------------------------- */
+/* Community Call to Action Section */
 
 .community-cta {
     background-color: var(--background-color);
@@ -764,9 +727,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Recipe detail page
----------------------------------------- */
+/* Recipe Detail Page */
 
 .recipe-detail-header {
     background-color: var(--primary-dark-color);
@@ -862,9 +823,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Ingredient List
----------------------------------------- */
+/* Ingredient List */
 
 .ingredient-list {
     margin: 0;
@@ -898,9 +857,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Recipe Forms
----------------------------------------- */
+/* Recipe Forms */
 
 .form-card {
     padding: 2rem;
@@ -926,9 +883,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Recipe Search & Filters
----------------------------------------- */
+/* Recipe Search & Filters */
 
 .form-control,
 .form-select {
@@ -936,9 +891,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Delete Confirmation
----------------------------------------- */
+/* Delete Confirmation */
 
 .delete-card {
     padding: 2.5rem;
@@ -953,9 +906,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Comments
----------------------------------------- */
+/* Comments */
 
 .comments-section {
     background-color: var(--background-color);
@@ -989,18 +940,14 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Dashboard
----------------------------------------- */
+/* Dashboard */
 
 #my-recipes-heading {
     color: var(--primary-dark-color);
 }
 
 
-/* ----------------------------------------
-   Pagination
----------------------------------------- */
+/* Pagination */
 
 .pagination .page-link {
     color: var(--primary-dark-color);
@@ -1026,9 +973,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Footer Section
----------------------------------------- */
+/* Footer Section */
 
 .site-footer {
     padding-block: 1.5rem;
@@ -1042,9 +987,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Authentication Pages
----------------------------------------- */
+/* Authentication Pages */
 
 .auth-section {
     min-height: 70vh;
@@ -1074,9 +1017,7 @@ a:focus-visible {
 }
 
 
-/* ----------------------------------------
-   Responsive Design
----------------------------------------- */
+/* Media Queries */
 
 @media (max-width: 991.98px) {
     .hero {
