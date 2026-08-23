@@ -643,7 +643,6 @@ a:focus-visible {
 }
 
 .favourite-recipe-card {
-    overflow: hidden;
     border: 1px solid var(--border-color);
     background-color: var(--white-color);
     transition:
