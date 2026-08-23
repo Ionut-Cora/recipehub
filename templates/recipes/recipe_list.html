@@ -112,12 +112,12 @@
                                 {% if recipe.image %}
                                     <img
                                         src="{{ recipe.image.url }}"
-                                        class="card-img-top recipe-card-image"
+                                        class="card-img-top recipe-card-image rounded-top-4"
                                         alt="{{ recipe.title }}"
                                     >
                                 {% else %}
                                     <div
-                                        class="recipe-card-placeholder"
+                                        class="recipe-card-placeholder rounded-top-4"
                                         role="img"
                                         aria-label="No image available for {{ recipe.title }}"
                                     >
