@@ -291,7 +291,7 @@
                 <div class="row g-4">
                     {% for recipe in recent_recipes %}
                         <div class="col-12 col-md-6 col-lg-4">
-                            <article class="card recipe-card h-100 rounded-4 shadow-sm">
+                            <article class="card recipe-card h-100 rounded-4 shadow-sm overflow-hidden">
                                 {% if recipe.image %}
                                     <img
                                         src="{{ recipe.image.url }}"

@@ -525,7 +525,6 @@ a:focus-visible {
 /* Recipe Cards */
 
 .recipe-card {
-    overflow: hidden;
     border: 1px solid var(--border-color);
     background-color: var(--white-color);
     transition:
