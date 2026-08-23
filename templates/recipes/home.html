@@ -424,6 +424,50 @@
         </div>
     </section>
 
+    <section
+        id="about"
+        class="section section-accent"
+        aria-labelledby="about-heading"
+    >
+        <div class="container about-home-content">
+            <p class="eyebrow">
+                About RecipeHub
+            </p>
+
+            <h2 class="mb-4">
+                A place where recipes bring people together.
+            </h2>
+
+            <p>
+                RecipeHub is a website created for individuals who love food. Whether you’re searching for recipes as an experienced cook or as someone looking for a little inspiration for the next recipe, RecipeHub features recipes from other food lovers.
+            </p>
+
+            <p>
+                Explore recipes by category or ingredient to find the perfect recipe for your kitchen. Find everything you need to prepare and cook a recipe, from preparation time to cooking time, from ingredients to step-by-step instructions.
+            </p>
+
+            <p>
+                RecipeHub is also a place to share your favourite recipes. Create an account to share your recipes with the community, rate recipes that you have tried, and leave comments on recipes of other members of the community.
+            </p>
+
+            <p class="about-home-highlight">
+                With every recipe shared on RecipeHub, someone new finds inspiration in the flavours of someone else’s cuisine. Discover something delicious on RecipeHub, share your recipes with the community, and inspire someone else’s next meal.
+            </p>
+
+            <a
+                class="btn recipe-button mt-2"
+                href="{% url 'recipes:about' %}"
+            >
+                Learn More About RecipeHub
+
+                <i
+                    class="fa-solid fa-arrow-right ms-2"
+                    aria-hidden="true"
+                ></i>
+            </a>
+        </div>
+    </section>
+
     <!-- Community Favourites -->
     <section
         class="community-favourites py-5"
@@ -748,26 +792,6 @@
                 {% endif %}
 
             </div>
-        </div>
-    </section>
-
-    <section
-        id="about"
-        class="section section-accent"
-        aria-labelledby="about-heading"
-    >
-        <div class="container about-content">
-            <div>
-                <p class="eyebrow">About RecipeHub</p>
-
-                <h2 id="about-heading">
-                    A place for people who like to eat
-                </h2>
-            </div>
-
-            <p>
-                RecipeHub brings people who love to cook together in one welcoming community. Anyone can visit the site to discover recipes, but registered members can share their own dishes.
-            </p>
         </div>
     </section>
 {% endblock %}
