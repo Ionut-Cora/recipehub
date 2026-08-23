@@ -693,30 +693,24 @@ a:focus-visible {
     color: var(--primary-dark-color);
 }
 
-.stat-card {
-    height: 100%;
-    padding: 2rem 1rem;
+.statistics-card {
     border: 1px solid var(--border-color);
     background-color: var(--background-color);
 }
 
-.stat-icon {
+.statistics-icon {
     display: block;
-    margin-bottom: 1rem;
     color: var(--accent-color);
     font-size: 2rem;
 }
 
-.stat-number {
-    display: block;
-    margin-bottom: 0.35rem;
+.statistics-number {
     color: var(--primary-dark-color);
     font-family: var(--heading-font);
     font-size: clamp(2rem, 5vw, 3rem);
-    line-height: 1;
 }
 
-.stat-label {
+.statistics-label {
     color: var(--text-light-color);
     font-size: 0.9rem;
     font-weight: 600;
