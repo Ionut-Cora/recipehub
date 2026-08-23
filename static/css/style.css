@@ -583,9 +583,7 @@ a:focus-visible {
 .favourite-recipe-card {
     overflow: hidden;
     border: 1px solid var(--border-color);
-    border-radius: 1rem;
     background-color: var(--white-color);
-    box-shadow: var(--shadow-soft);
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
