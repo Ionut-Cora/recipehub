@@ -470,7 +470,6 @@ a:focus-visible {
 .recipe-card {
     overflow: hidden;
     border: 1px solid var(--border-color);
-    border-radius: 0.8rem;
     background-color: var(--white-color);
     transition:
         transform 0.2s ease,
