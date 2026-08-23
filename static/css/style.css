@@ -192,14 +192,11 @@ a:focus-visible {
 
 .community-cta-card {
     padding: 4rem 2rem;
-    /* border-radius: 1.25rem; */
     background-color: var(--primary-dark-color);
     color: var(--background-color);
-    /* box-shadow: var(--shadow-soft); */
 }
 
 .community-cta-card h2 {
-    margin-bottom: 1rem;
     color: var(--background-color);
     font-family: var(--heading-font);
     font-size: clamp(2rem, 5vw, 3.25rem);
@@ -207,7 +204,6 @@ a:focus-visible {
 
 .community-cta-text {
     max-width: 42rem;
-    margin-bottom: 2rem;
     color: var(--background-color);
     font-size: 1.05rem;
     line-height: 1.7;
