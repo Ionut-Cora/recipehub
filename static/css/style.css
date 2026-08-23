@@ -184,6 +184,68 @@ a:focus-visible {
     outline-offset: 4px;
 }
 
+/* Community Call to Action Section */
+
+.community-cta {
+    background-color: var(--background-color);
+}
+
+.community-cta-card {
+    padding: 4rem 2rem;
+    /* border-radius: 1.25rem; */
+    background-color: var(--primary-dark-color);
+    color: var(--background-color);
+    /* box-shadow: var(--shadow-soft); */
+}
+
+.community-cta-card h2 {
+    margin-bottom: 1rem;
+    color: var(--background-color);
+    font-family: var(--heading-font);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.community-cta-text {
+    max-width: 42rem;
+    margin-bottom: 2rem;
+    color: var(--background-color);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.community-cta-card .eyebrow {
+    color: var(--accent-color);
+}
+
+.community-cta-button {
+    padding: 0.8rem 1.4rem;
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+.community-cta-button:hover,
+.community-cta-button:focus {
+    border-color: var(--background-color);
+    background-color: var(--background-color);
+    color: var(--primary-dark-color);
+}
+
+.community-cta-outline {
+    padding: 0.8rem 1.4rem;
+    border: 2px solid var(--background-color);
+    background-color: transparent;
+    color: var(--background-color);
+    font-weight: 600;
+}
+
+.community-cta-outline:hover,
+.community-cta-outline:focus {
+    background-color: var(--background-color);
+    color: var(--primary-dark-color);
+}
+
 /* Recipe card image placeholder */
 
 .recipe-card-placeholder {
@@ -665,69 +727,6 @@ a:focus-visible {
     color: var(--text-light-color);
     font-size: 0.9rem;
     font-weight: 600;
-}
-
-
-/* Community Call to Action Section */
-
-.community-cta {
-    background-color: var(--background-color);
-}
-
-.community-cta-card {
-    padding: 4rem 2rem;
-    border-radius: 1.25rem;
-    background-color: var(--primary-dark-color);
-    color: var(--background-color);
-    box-shadow: var(--shadow-soft);
-}
-
-.community-cta-card h2 {
-    margin-bottom: 1rem;
-    color: var(--background-color);
-    font-family: var(--heading-font);
-    font-size: clamp(2rem, 5vw, 3.25rem);
-}
-
-.community-cta-text {
-    max-width: 42rem;
-    margin-bottom: 2rem;
-    color: var(--background-color);
-    font-size: 1.05rem;
-    line-height: 1.7;
-}
-
-.community-cta-card .eyebrow {
-    color: var(--accent-color);
-}
-
-.community-cta-button {
-    padding: 0.8rem 1.4rem;
-    border: 2px solid var(--accent-color);
-    background-color: var(--accent-color);
-    color: var(--white-color);
-    font-weight: 600;
-}
-
-.community-cta-button:hover,
-.community-cta-button:focus {
-    border-color: var(--background-color);
-    background-color: var(--background-color);
-    color: var(--primary-dark-color);
-}
-
-.community-cta-outline {
-    padding: 0.8rem 1.4rem;
-    border: 2px solid var(--background-color);
-    background-color: transparent;
-    color: var(--background-color);
-    font-weight: 600;
-}
-
-.community-cta-outline:hover,
-.community-cta-outline:focus {
-    background-color: var(--background-color);
-    color: var(--primary-dark-color);
 }
 
 
