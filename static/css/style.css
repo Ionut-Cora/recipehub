@@ -1139,6 +1139,10 @@ a:focus-visible {
     background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/login-background-image.jpg');
 }
 
+.signup-page {
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/signup-background-image.jpg');
+}
+
 
 /* Media Queries */
 
