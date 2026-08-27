@@ -302,7 +302,11 @@ a:focus-visible {
 }
 
 .page-header {
-    background-color: var(--primary-dark-color);
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/browse-recipe-page-hero-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     color: var(--white-color);
 }
 
