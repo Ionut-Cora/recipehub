@@ -1105,7 +1105,8 @@ a:focus-visible {
 
 /* Authentication Pages */
 
-.auth-section {
+.auth-section,
+.recipe-form-page {
     min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -1145,6 +1146,10 @@ a:focus-visible {
 
 .logout-page {
     background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/logout-background-image.jpg');
+}
+
+.recipe-form-page {
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/recipe-form-background-image.jpg');
 }
 
 
