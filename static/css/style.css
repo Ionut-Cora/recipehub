@@ -1115,7 +1115,7 @@ a:focus-visible {
 .auth-card {
     padding: 2rem;
     border: 1px solid var(--border-color);
-    background-color: var(--white-color);
+    background-color: #ffffffae;
 }
 
 .auth-card h1 {
