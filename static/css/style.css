@@ -974,24 +974,24 @@ a:focus-visible {
 /* About Page */
 
 .about-hero {
-    background: linear-gradient(
-        135deg,
-        var(--background-color) 0%,
-        #ece8d8 100%
-    );
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/about-page-hero-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 .about-hero h1 {
-    color: var(--primary-dark-color);
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     line-height: 1.1;
+    color: var(--white-color);
 }
 
 .about-hero-text {
     max-width: 42rem;
-    color: var(--text-color);
     font-size: 1.1rem;
     line-height: 1.7;
+    color: var(--white-color);
 }
 
 
