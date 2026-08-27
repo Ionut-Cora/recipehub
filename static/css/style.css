@@ -848,9 +848,7 @@ a:focus-visible {
 .form-card {
     padding: 2rem;
     border: 1px solid var(--border-color);
-    border-radius: 0.8rem;
     background-color: var(--white-color);
-    box-shadow: var(--shadow-soft);
 }
 
 .form-card h1 {
