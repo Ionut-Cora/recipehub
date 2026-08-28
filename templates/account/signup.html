@@ -1,84 +1,52 @@
-{% extends "base.html" %}
-
-{% block title %}
-    Register | RecipeHub
-{% endblock %}
-
+{% extends "base.html" %} {% block title %} Register | RecipeHub {% endblock %}
 {% block content %}
 <section class="signup-page auth-section py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6">
-                <div class="auth-card rounded-4 shadow-sm">
-                    <div class="text-center mb-4">
-                        <p class="eyebrow">Join the community</p>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="auth-card rounded-4 shadow-sm">
+          <div class="text-center mb-4">
+            <p class="eyebrow">Join the community</p>
 
-                        <h1>Create an account</h1>
+            <h1>Create an account</h1>
 
-                        <p class="text-secondary">
-                            Register to create and share your own recipes.
-                        </p>
-                    </div>
+            <p class="text-secondary">
+              Register to create and share your own recipes.
+            </p>
+          </div>
 
-                    <form
-                        method="post"
-                        action="{% url 'account_signup' %}"
-                        novalidate
-                    >
-                        {% csrf_token %}
-
-                        {% if form.non_field_errors %}
-                            <div
-                                class="alert alert-danger"
-                                role="alert"
-                            >
-                                {{ form.non_field_errors }}
-                            </div>
-                        {% endif %}
-
-                        {% for field in form %}
-                            <div class="mb-3">
-                                <label
-                                    class="form-label"
-                                    for="{{ field.id_for_label }}"
-                                >
-                                    {{ field.label }}
-                                </label>
-
-                                {{ field }}
-
-                                {% if field.help_text %}
-                                    <div class="form-text">
-                                        {{ field.help_text|safe }}
-                                    </div>
-                                {% endif %}
-
-                                {% for error in field.errors %}
-                                    <div class="text-danger small mt-1">
-                                        {{ error }}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        {% endfor %}
-
-                        <button
-                            class="btn recipe-button w-100"
-                            type="submit"
-                        >
-                            Register
-                        </button>
-                    </form>
-
-                    <p class="text-center mt-4 mb-0">
-                        Already have an account?
-
-                        <a href="{% url 'account_login' %}">
-                            Log in
-                        </a>
-                    </p>
-                </div>
+          <form method="post" action="{% url 'account_signup' %}" novalidate>
+            {% csrf_token %} {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+              {{ form.non_field_errors }}
             </div>
+            {% endif %} {% for field in form %}
+            <div class="mb-3">
+              <label class="form-label" for="{{ field.id_for_label }}">
+                {{ field.label }}
+              </label>
+
+              {{ field }} {% if field.help_text %}
+              <div class="form-text">{{ field.help_text|safe }}</div>
+              {% endif %} {% for error in field.errors %}
+              <div class="text-danger small mt-1">{{ error }}</div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+
+            <button class="btn recipe-button w-100" type="submit">
+              Register
+            </button>
+          </form>
+
+          <p class="text-center mt-4 mb-0">
+            Already have an account?
+
+            <a href="{% url 'account_login' %}"> Log in </a>
+          </p>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 {% endblock %}

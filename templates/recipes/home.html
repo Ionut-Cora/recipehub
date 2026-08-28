@@ -1,9 +1,4 @@
-{% extends "base.html" %}
-
-{% block title %}
-    RecipeHub | Cook, Share and Discover
-{% endblock %}
-
+{% extends "base.html" %} {% block title %} RecipeHub | Cook, Share and Discover {% endblock %}
 {% block content %}
     <section class="hero">
         <div class="container">
@@ -24,15 +19,11 @@
                             Discover the recipes you want, share your own ideas and learn how to prepare healthy meals.
                         </p>
 
-                        <a
-                            class="btn recipe-button"
-                            href="{% url 'recipes:recipe_list' %}"
-                        >
+                        <a class="btn recipe-button" href="{% url 'recipes:recipe_list' %}">
                             Browse recipes
                         </a>
                     </div>
                 </div>
-
 
                 <!-- Featured recipe -->
                 <div class="col-12 col-lg-6">
@@ -41,21 +32,10 @@
                         <article class="hero-featured-recipe rounded-4 shadow-sm">
 
                             {% if featured_recipe.image %}
-                                <img
-                                    src="{{ featured_recipe.image.url }}"
-                                    class="hero-featured-image"
-                                    alt="{{ featured_recipe.title }}"
-                                >
+                                <img src="{{ featured_recipe.image.url }}" class="hero-featured-image" alt="{{ featured_recipe.title }}">
                             {% else %}
-                                <div
-                                    class="hero-featured-placeholder"
-                                    role="img"
-                                    aria-label="No image available for {{ featured_recipe.title }}"
-                                >
-                                    <i
-                                        class="fa-solid fa-utensils"
-                                        aria-hidden="true"
-                                    ></i>
+                                <div class="hero-featured-placeholder" role="img" aria-label="No image available for {{ featured_recipe.title }}">
+                                    <i class="fa-solid fa-utensils" aria-hidden="true"></i>
                                 </div>
                             {% endif %}
 
@@ -85,10 +65,7 @@
 
                                 <div class="hero-recipe-meta mb-3">
                                     <div class="hero-meta-item">
-                                        <i
-                                            class="fa-regular fa-clock"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-regular fa-clock" aria-hidden="true"></i>
                                         <span>
                                             <strong>Prep</strong>
                                             {{ featured_recipe.preparation_time }} min
@@ -96,10 +73,7 @@
                                     </div>
 
                                     <div class="hero-meta-item">
-                                        <i
-                                            class="fa-solid fa-fire-burner"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-fire-burner" aria-hidden="true"></i>
                                         <span>
                                             <strong>Cook</strong>
                                             {{ featured_recipe.cooking_time }} min
@@ -107,10 +81,7 @@
                                     </div>
 
                                     <div class="hero-meta-item">
-                                        <i
-                                            class="fa-regular fa-hourglass-half"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-regular fa-hourglass-half" aria-hidden="true"></i>
 
                                         <span>
                                             <strong>Total</strong>
@@ -119,10 +90,7 @@
                                     </div>
 
                                     <div class="hero-meta-item">
-                                        <i
-                                            class="fa-solid fa-utensils"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-utensils" aria-hidden="true"></i>
 
                                         <span>
                                             <strong>Serves</strong>
@@ -131,10 +99,7 @@
                                     </div>
 
                                     <div class="hero-meta-item">
-                                        <i
-                                            class="fa-solid fa-gauge-high"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
 
                                         <span>
                                             <strong>Difficulty</strong>
@@ -143,10 +108,7 @@
                                     </div>
                                 </div>
 
-                                <a
-                                    class="btn btn-outline-dark"
-                                    href="{% url 'recipes:recipe_detail' featured_recipe.slug %}"
-                                >
+                                <a class="btn btn-outline-dark" href="{% url 'recipes:recipe_detail' featured_recipe.slug %}">
                                     View latest recipe
                                 </a>
 
@@ -156,10 +118,7 @@
                     {% else %}
 
                         <div class="hero-featured-empty">
-                            <i
-                                class="fa-solid fa-utensils mb-3"
-                                aria-hidden="true"
-                            ></i>
+                            <i class="fa-solid fa-utensils mb-3" aria-hidden="true"></i>
                             <p class="mb-0">
                                 No published recipes yet.
                             </p>
@@ -168,18 +127,13 @@
                     {% endif %}
 
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- Browse by Category -->
-    <section
-        class="category-section py-5"
-        aria-labelledby="category-heading"
-    >
+    <section class="category-section py-5" aria-labelledby="category-heading">
         <div class="container">
-
             <div class="text-center mb-5">
                 <p class="eyebrow">
                     Find your next dish
@@ -200,43 +154,22 @@
 
                     {% for category in categories %}
                         <div class="col-12 col-sm-6 col-lg-3">
-
-                            <a
-                                class="category-card d-block h-100 text-center text-decoration-none p-4 rounded-4 shadow-sm"
-                                href="{% url 'recipes:recipe_list' %}?category={{ category.id }}"
-                                aria-label="Browse {{ category.name }} recipes"
-                            >
-
+                            <a class="category-card d-block h-100 text-center text-decoration-none p-4 rounded-4 shadow-sm" href="{% url 'recipes:recipe_list' %}?category={{ category.id }}" aria-label="Browse {{ category.name }} recipes">
                                 <div class="category-icon">
                                     {% if category.name == "Breakfast" %}
-                                        <i
-                                            class="fa-solid fa-mug-hot"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
 
                                     {% elif category.name == "Lunch" %}
-                                        <i
-                                            class="fa-solid fa-bowl-food"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-bowl-food" aria-hidden="true"></i>
 
                                     {% elif category.name == "Dinner" %}
-                                        <i
-                                            class="fa-solid fa-utensils"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-utensils" aria-hidden="true"></i>
 
                                     {% elif category.name == "Desserts" %}
-                                        <i
-                                            class="fa-solid fa-cake-candles"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
 
                                     {% else %}
-                                        <i
-                                            class="fa-solid fa-carrot"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-carrot" aria-hidden="true"></i>
                                     {% endif %}
                                 </div>
 
@@ -247,14 +180,9 @@
                                 <span class="category-link-text">
                                     Explore recipes
 
-                                    <i
-                                        class="fa-solid fa-arrow-right"
-                                        aria-hidden="true"
-                                    ></i>
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                                 </span>
-
                             </a>
-
                         </div>
                     {% endfor %}
 
@@ -273,11 +201,7 @@
     </section>
 
     <!-- Recent Recipes -->
-    <section
-        id="recent-recipes"
-        class="section py-5"
-        aria-labelledby="recent-recipes-heading"
-    >
+    <section id="recent-recipes" class="section py-5" aria-labelledby="recent-recipes-heading">
         <div class="container">
             <div class="section-heading text-center mb-4">
                 <p class="eyebrow">Explore something new</p>
@@ -293,21 +217,10 @@
                         <div class="col-12 col-md-6 col-lg-4">
                             <article class="card recipe-card h-100 rounded-4 shadow-sm overflow-hidden">
                                 {% if recipe.image %}
-                                    <img
-                                        src="{{ recipe.image.url }}"
-                                        class="card-img-top recipe-card-image"
-                                        alt="{{ recipe.title }}"
-                                    >
+                                    <img src="{{ recipe.image.url }}" class="card-img-top recipe-card-image" alt="{{ recipe.title }}">
                                 {% else %}
-                                    <div
-                                        class="recipe-card-placeholder"
-                                        role="img"
-                                        aria-label="No image available for {{ recipe.title }}"
-                                    >
-                                        <i
-                                            class="fa-solid fa-utensils"
-                                            aria-hidden="true"
-                                        ></i>
+                                    <div class="recipe-card-placeholder" role="img" aria-label="No image available for {{ recipe.title }}">
+                                        <i class="fa-solid fa-utensils" aria-hidden="true"></i>
                                     </div>
                                 {% endif %}
 
@@ -332,10 +245,7 @@
 
                                     <div class="recipe-meta mt-auto mb-3">
                                         <div class="recent-meta-item">
-                                            <i
-                                                class="fa-regular fa-clock"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-regular fa-clock" aria-hidden="true"></i>
                                             <span>
                                                 <strong>Prep</strong> 
                                                 {{ recipe.preparation_time }} min
@@ -343,10 +253,7 @@
                                         </div>
 
                                         <div class="recent-meta-item">
-                                            <i
-                                                class="fa-solid fa-fire-burner"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-solid fa-fire-burner" aria-hidden="true"></i>
                                             <span>
                                                 <strong>Cook</strong> 
                                                 {{ recipe.cooking_time }} min
@@ -354,10 +261,7 @@
                                         </div>
 
                                         <div class="recent-meta-item">
-                                            <i
-                                                class="fa-regular fa-hourglass-half"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-regular fa-hourglass-half" aria-hidden="true"></i>
 
                                             <span>
                                                 <strong>Total</strong>
@@ -366,10 +270,7 @@
                                         </div>
 
                                         <div class="recent-meta-item">
-                                            <i
-                                                class="fa-solid fa-utensils"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-solid fa-utensils" aria-hidden="true"></i>
 
                                             <span>
                                                 <strong>Serves</strong>
@@ -378,10 +279,7 @@
                                         </div>
 
                                         <div class="recent-meta-item">
-                                            <i
-                                                class="fa-solid fa-gauge-high"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
 
                                             <span>
                                                 <strong>Difficulty</strong>
@@ -394,17 +292,9 @@
                                         By {{ recipe.author.username }}
                                     </p>
 
-                                    <a
-                                        class="btn recipe-button"
-                                        href="{% url 'recipes:recipe_detail' recipe.slug %}"
-                                        aria-label="View {{ recipe.title }}"
-                                    >
+                                    <a class="btn recipe-button" href="{% url 'recipes:recipe_detail' recipe.slug %}" aria-label="View {{ recipe.title }}">
                                         View recipe
-
-                                        <i
-                                            class="fa-solid fa-arrow-right ms-2"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </article>
@@ -424,11 +314,7 @@
         </div>
     </section>
 
-    <section
-        id="about"
-        class="section section-accent"
-        aria-labelledby="about-heading"
-    >
+    <section id="about" class="section section-accent" aria-labelledby="about-heading">
         <div class="container about-home-content">
             <p class="eyebrow">
                 About RecipeHub
@@ -454,27 +340,16 @@
                 With every recipe shared on RecipeHub, someone new finds inspiration in the flavours of someone else’s cuisine. Discover something delicious on RecipeHub, share your recipes with the community, and inspire someone else’s next meal.
             </p>
 
-            <a
-                class="btn recipe-button mt-2"
-                href="{% url 'recipes:about' %}"
-            >
+            <a class="btn recipe-button mt-2" href="{% url 'recipes:about' %}">
                 Learn More About RecipeHub
-
-                <i
-                    class="fa-solid fa-arrow-right ms-2"
-                    aria-hidden="true"
-                ></i>
+                <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
             </a>
         </div>
     </section>
 
     <!-- Community Favourites -->
-    <section
-        class="community-favourites py-5"
-        aria-labelledby="community-favourites-heading"
-    >
+    <section class="community-favourites py-5" aria-labelledby="community-favourites-heading">
         <div class="container">
-
             <div class="text-center mb-5">
                 <p class="eyebrow">
                     Loved by the community
@@ -485,8 +360,7 @@
                 </h2>
 
                 <p class="section-intro mx-auto">
-                    Discover some of the highest-rated recipes
-                    shared by RecipeHub members.
+                    Discover some of the highest-rated recipes shared by RecipeHub members.
                 </p>
             </div>
 
@@ -497,32 +371,17 @@
                     {% for recipe in top_rated_recipes %}
 
                         <div class="col-12 col-md-6 col-lg-4">
-
-                            <article
-                                class="card favourite-recipe-card h-100 rounded-4 shadow-sm overflow-hidden"
-                            >
+                            <article class="card favourite-recipe-card h-100 rounded-4 shadow-sm overflow-hidden">
 
                                 {% if recipe.image %}
-                                    <img
-                                        src="{{ recipe.image.url }}"
-                                        class="favourite-recipe-image"
-                                        alt="{{ recipe.title }}"
-                                    >
+                                    <img src="{{ recipe.image.url }}" class="favourite-recipe-image" alt="{{ recipe.title }}">
                                 {% else %}
-                                    <div
-                                        class="recipe-card-placeholder"
-                                        role="img"
-                                        aria-label="No image available for {{ recipe.title }}"
-                                    >
-                                        <i
-                                            class="fa-solid fa-utensils"
-                                            aria-hidden="true"
-                                        ></i>
+                                    <div class="recipe-card-placeholder" role="img" aria-label="No image available for {{ recipe.title }}">
+                                        <i class="fa-solid fa-utensils" aria-hidden="true"></i>
                                     </div>
                                 {% endif %}
 
                                 <div class="card-body d-flex flex-column">
-
                                     <div class="mb-2">
                                         <span class="badge recipe-category-badge">
                                             {{ recipe.category.name }}
@@ -538,10 +397,7 @@
                                     </p>
 
                                     <div class="favourite-rating mt-auto mb-3">
-                                        <span
-                                            class="rating-stars"
-                                            aria-hidden="true"
-                                        >
+                                        <span class="rating-stars" aria-hidden="true">
                                             ★
                                         </span>
 
@@ -557,39 +413,23 @@
                                     <div class="favourite-meta mb-3">
 
                                         <span>
-                                            <i
-                                                class="fa-regular fa-clock"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-regular fa-clock" aria-hidden="true"></i>
                                             {{ recipe.total_time }} min
                                         </span>
 
                                         <span>
-                                            <i
-                                                class="fa-solid fa-utensils"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-solid fa-utensils" aria-hidden="true"></i>
                                             Serves {{ recipe.servings }}
                                         </span>
 
                                     </div>
 
-                                    <a
-                                        class="btn recipe-button"
-                                        href="{% url 'recipes:recipe_detail' recipe.slug %}"
-                                        aria-label="View {{ recipe.title }}"
-                                    >
+                                    <a class="btn recipe-button" href="{% url 'recipes:recipe_detail' recipe.slug %}" aria-label="View {{ recipe.title }}">
                                         View Recipe
-
-                                        <i
-                                            class="fa-solid fa-arrow-right ms-2"
-                                            aria-hidden="true"
-                                        ></i>
+                                        <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
                                     </a>
-
                                 </div>
                             </article>
-
                         </div>
 
                     {% endfor %}
@@ -599,18 +439,14 @@
             {% else %}
 
                 <div class="empty-state text-center">
-                    <i
-                        class="fa-regular fa-star mb-3"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fa-regular fa-star mb-3" aria-hidden="true"></i>
 
                     <h3>
                         No rated recipes yet
                     </h3>
 
                     <p class="text-secondary mb-0">
-                        Community favourites will appear here
-                        as members start rating recipes.
+                        Community favourites will appear here as members start rating recipes.
                     </p>
                 </div>
 
@@ -620,12 +456,8 @@
     </section>
 
     <!-- Statistics Section -->
-    <section
-        class="statistics-section py-5"
-        aria-labelledby="statistics-heading"
-    >
+    <section class="statistics-section py-5" aria-labelledby="statistics-heading">
         <div class="container">
-
             <div class="text-center mb-5">
                 <p class="eyebrow">
                     RecipeHub community
@@ -636,19 +468,14 @@
                 </h2>
 
                 <p class="section-intro mx-auto">
-                    Discover how the RecipeHub community is growing
-                    through shared recipes, conversations and ratings.
+                    Discover how the RecipeHub community is growing through shared recipes, conversations and ratings.
                 </p>
             </div>
 
             <div class="row g-4 text-center">
-
                 <div class="col-6 col-lg-3">
                     <div class="statistics-card h-100 rounded-4 px-3 py-4">
-                        <i
-                            class="fa-solid fa-book-open statistics-icon mb-3"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-book-open statistics-icon mb-3" aria-hidden="true"></i>
 
                         <strong class="statistics-number d-block mb-2 lh-1">
                             {{ statistics.recipes }}
@@ -662,10 +489,7 @@
 
                 <div class="col-6 col-lg-3">
                     <div class="statistics-card h-100 rounded-4 px-3 py-4">
-                        <i
-                            class="fa-solid fa-users statistics-icon mb-3"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-users statistics-icon mb-3" aria-hidden="true"></i>
 
                         <strong class="statistics-number d-block mb-2 lh-1">
                             {{ statistics.members }}
@@ -679,10 +503,7 @@
 
                 <div class="col-6 col-lg-3">
                     <div class="statistics-card h-100 rounded-4 px-3 py-4">
-                        <i
-                            class="fa-regular fa-comments statistics-icon mb-3"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-regular fa-comments statistics-icon mb-3" aria-hidden="true"></i>
 
                         <strong class="statistics-number d-block mb-2 lh-1">
                             {{ statistics.comments }}
@@ -696,10 +517,7 @@
 
                 <div class="col-6 col-lg-3">
                     <div class="statistics-card h-100 rounded-4 px-3 py-4">
-                        <i
-                            class="fa-solid fa-star statistics-icon mb-3"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-star statistics-icon mb-3" aria-hidden="true"></i>
 
                         <strong class="statistics-number d-block mb-2 lh-1">
                             {{ statistics.ratings }}
@@ -710,16 +528,12 @@
                         </span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- Community Call to Action Section -->
-    <section
-        class="community-cta py-5"
-        aria-labelledby="community-cta-heading"
-    >
+    <section class="community-cta py-5" aria-labelledby="community-cta-heading">
         <div class="container">
             <div class="community-cta-card text-center rounded-4 shadow-sm">
 
@@ -734,19 +548,11 @@
                     </h2>
 
                     <p class="community-cta-text mx-auto mb-4">
-                        Share your latest creation with the RecipeHub
-                        community and inspire other home cooks.
+                        Share your latest creation with the RecipeHub community and inspire other home cooks.
                     </p>
 
-                    <a
-                        class="btn community-cta-button"
-                        href="{% url 'recipes:recipe_create' %}"
-                    >
-                        <i
-                            class="fa-solid fa-plus me-2"
-                            aria-hidden="true"
-                        ></i>
-
+                    <a class="btn community-cta-button" href="{% url 'recipes:recipe_create' %}">
+                        <i class="fa-solid fa-plus me-2" aria-hidden="true"></i>
                         Add a Recipe
                     </a>
 
@@ -761,30 +567,16 @@
                     </h2>
 
                     <p class="community-cta-text mx-auto mb-4">
-                        Create a free RecipeHub account and share
-                        your favourite dishes with our growing community.
+                        Create a free RecipeHub account and share your favourite dishes with our growing community.
                     </p>
 
-                    <div
-                        class="d-flex justify-content-center
-                        gap-3 flex-wrap"
-                    >
-                        <a
-                            class="btn community-cta-button"
-                            href="{% url 'account_signup' %}"
-                        >
-                            <i
-                                class="fa-solid fa-user-plus me-2"
-                                aria-hidden="true"
-                            ></i>
-
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a class="btn community-cta-button" href="{% url 'account_signup' %}">
+                            <i class="fa-solid fa-user-plus me-2" aria-hidden="true"></i>
                             Create an Account
                         </a>
 
-                        <a
-                            class="btn community-cta-outline"
-                            href="{% url 'account_login' %}"
-                        >
+                        <a class="btn community-cta-outline" href="{% url 'account_login' %}">
                             Log In
                         </a>
                     </div>

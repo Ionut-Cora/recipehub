@@ -65,11 +65,6 @@ textarea {
     font-family: var(--body-font);
 }
 
-.btn {
-    font-family: var(--body-font);
-    font-weight: 600;
-}
-
 img {
     display: block;
     max-width: 100%;
@@ -110,36 +105,6 @@ a {
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-}
-
-.button {
-    display: inline-block;
-    padding: 0.85rem 1.4rem;
-    border: 2px solid transparent;
-    border-radius: 0.4rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
-}
-
-.button:hover {
-    transform: translateY(-2px);
-}
-
-.button-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--white-color);
-}
-
-.button-primary:hover,
-.button-primary:focus-visible {
-    background-color: var(--primary-dark-color);
-    border-color: var(--primary-dark-color);
-    color: var(--white-color);
 }
 
 .empty-state {
@@ -184,6 +149,42 @@ a:focus-visible {
     outline-offset: 4px;
 }
 
+/* Buttons */
+
+.btn {
+    font-family: var(--body-font);
+    font-weight: 600;
+}
+
+.recipe-button {
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 700;
+}
+
+.recipe-button:hover,
+.recipe-button:focus {
+    border-color: var(--primary-dark-color);
+    background-color: var(--primary-dark-color);
+    color: var(--white-color);
+}
+
+.community-cta-button {
+    padding: 0.8rem 1.4rem;
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+.community-cta-button:hover,
+.community-cta-button:focus {
+    border-color: var(--background-color);
+    background-color: var(--background-color);
+    color: var(--primary-dark-color);
+}
+
 /* Community Call to Action Section */
 
 .community-cta {
@@ -211,21 +212,6 @@ a:focus-visible {
 
 .community-cta-card .eyebrow {
     color: var(--accent-color);
-}
-
-.community-cta-button {
-    padding: 0.8rem 1.4rem;
-    border: 2px solid var(--accent-color);
-    background-color: var(--accent-color);
-    color: var(--white-color);
-    font-weight: 600;
-}
-
-.community-cta-button:hover,
-.community-cta-button:focus {
-    border-color: var(--background-color);
-    background-color: var(--background-color);
-    color: var(--primary-dark-color);
 }
 
 .community-cta-outline {
@@ -571,20 +557,6 @@ a:focus-visible {
     gap: 0.5rem 1rem;
     color: var(--text-light-color);
     font-size: 0.9rem;
-}
-
-.recipe-button {
-    border: 2px solid var(--primary-color);
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    font-weight: 700;
-}
-
-.recipe-button:hover,
-.recipe-button:focus {
-    border-color: var(--primary-dark-color);
-    background-color: var(--primary-dark-color);
-    color: var(--white-color);
 }
 
 .recent-recipe-meta {
