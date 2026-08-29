@@ -99,8 +99,16 @@ a {
 }
 
 .eyebrow {
-    margin: 0 0 0.5rem;
     color: var(--accent-color);
+}
+
+.second-eyebrow {
+    color: var(--border-color);
+}
+
+.eyebrow,
+.second-eyebrow {
+    margin: 0 0 0.5rem;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -214,10 +222,6 @@ a:focus-visible {
     color: var(--background-color);
     font-size: 1.05rem;
     line-height: 1.7;
-}
-
-.community-cta-card .eyebrow {
-    color: var(--accent-color);
 }
 
 .community-cta-outline {
