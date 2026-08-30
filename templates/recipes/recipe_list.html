@@ -18,54 +18,27 @@
         </div>
     </section>
 
-    <section
-        class="section py-5"
-        aria-labelledby="recipe-list-heading"
-    >
+    <section class="section py-5">
         <div class="container">
-            <h2
-                id="recipe-list-heading"
-                class="visually-hidden"
-            >
+            <h2 id="recipe-list-heading" class="visually-hidden">
                 Published recipes
             </h2>
 
-            <form
-                method="get"
-                class="row g-3 align-items-end mb-5"
-                aria-label="Search and filter recipes"
-            >
+            <form method="get" class="row g-3 align-items-end mb-5" aria-label="Search and filter recipes">
                 <div class="col-12 col-md-6">
-                    <label
-                        class="form-label"
-                        for="recipe-search"
-                    >
+                    <label class="form-label" for="recipe-search">
                         Search recipes
                     </label>
 
-                    <input
-                        class="form-control"
-                        type="search"
-                        id="recipe-search"
-                        name="q"
-                        value="{{ search_query }}"
-                        placeholder="Search by title or ingredient"
-                    >
+                    <input class="form-control" type="search" id="recipe-search" name="q" value="{{ search_query }}" placeholder="Search by title or ingredient">
                 </div>
 
                 <div class="col-12 col-md-4">
-                    <label
-                        class="form-label"
-                        for="category-filter"
-                    >
+                    <label class="form-label" for="category-filter">
                         Category
                     </label>
 
-                    <select
-                        class="form-select"
-                        id="category-filter"
-                        name="category"
-                    >
+                    <select class="form-select" id="category-filter" name="category">
                         <option value="">
                             All categories
                         </option>
@@ -84,10 +57,7 @@
                 </div>
 
                 <div class="col-12 col-md-2 d-grid">
-                    <button
-                        class="btn recipe-button"
-                        type="submit"
-                    >
+                    <button class="btn recipe-button" type="submit">
                         Search
                     </button>
                 </div>
@@ -95,10 +65,7 @@
 
             {% if search_query or selected_category %}
                 <div class="mb-4">
-                    <a
-                        class="btn btn-outline-secondary"
-                        href="{% url 'recipes:recipe_list' %}"
-                    >
+                    <a class="btn btn-outline-secondary" href="{% url 'recipes:recipe_list' %}">
                         Clear filters
                     </a>
                 </div>
@@ -110,21 +77,10 @@
                         <div class="col-12 col-md-6 col-lg-4">
                             <article class="card recipe-card h-100 rounded-4 shadow-sm">
                                 {% if recipe.image %}
-                                    <img
-                                        src="{{ recipe.image.url }}"
-                                        class="card-img-top recipe-card-image rounded-top-4"
-                                        alt="{{ recipe.title }}"
-                                    >
+                                    <img src="{{ recipe.image.url }}" class="card-img-top recipe-card-image rounded-top-4" alt="{{ recipe.title }}">
                                 {% else %}
-                                    <div
-                                        class="recipe-card-placeholder rounded-top-4"
-                                        role="img"
-                                        aria-label="No image available for {{ recipe.title }}"
-                                    >
-                                        <i
-                                            class="fa-solid fa-utensils"
-                                            aria-hidden="true"
-                                        ></i>
+                                    <div class="recipe-card-placeholder rounded-top-4" role="img" aria-label="No image available for {{ recipe.title }}">
+                                        <i class="fa-solid fa-utensils" aria-hidden="true"></i>
                                     </div>
                                 {% endif %}
 
@@ -149,26 +105,17 @@
 
                                     <div class="recipe-meta mt-auto mb-3">
                                         <span class="d-flex flex-row">
-                                            <i
-                                                class="fa-regular fa-clock recipe-detail-icon me-1"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-regular fa-clock recipe-detail-icon me-1" aria-hidden="true"></i>
                                             {{ recipe.preparation_time }} min
                                         </span>
 
                                         <span class="d-flex flex-row">
-                                            <i
-                                                class="fa-solid fa-fire-burner recipe-detail-icon me-1"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-solid fa-fire-burner recipe-detail-icon me-1" aria-hidden="true"></i>
                                             {{ recipe.cooking_time }} min
                                         </span>
 
                                         <span class="d-flex flex-row">
-                                            <i
-                                                class="fa-solid fa-utensils recipe-detail-icon me-1"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fa-solid fa-utensils recipe-detail-icon me-1" aria-hidden="true"></i>
                                             {{ recipe.servings }}
                                         </span>
                                     </div>
@@ -177,11 +124,7 @@
                                         By {{ recipe.author.username }}
                                     </p>
 
-                                    <a
-                                        class="btn recipe-button"
-                                        href="{% url 'recipes:recipe_detail' recipe.slug %}"
-                                        aria-label="View {{ recipe.title }}"
-                                    >
+                                    <a class="btn recipe-button" href="{% url 'recipes:recipe_detail' recipe.slug %}" aria-label="View {{ recipe.title }}">
                                         View recipe
                                     </a>
                                 </div>
@@ -191,18 +134,11 @@
                 </div>
 
                 {% if page_obj.paginator.num_pages > 1 %}
-                    <nav
-                        class="mt-5"
-                        aria-label="Recipe pagination"
-                    >
+                    <nav class="mt-5" aria-label="Recipe pagination">
                         <ul class="pagination justify-content-center">
                             {% if page_obj.has_previous %}
                                 <li class="page-item">
-                                    <a
-                                        class="page-link"
-                                        href="?page={{ page_obj.previous_page_number }}"
-                                        aria-label="Previous page"
-                                    >
+                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">
                                         Previous
                                     </a>
                                 </li>
@@ -216,20 +152,14 @@
 
                             {% for page_number in page_obj.paginator.page_range %}
                                 {% if page_number == page_obj.number %}
-                                    <li
-                                        class="page-item active"
-                                        aria-current="page"
-                                    >
+                                    <li class="page-item active" aria-current="page">
                                         <span class="page-link">
                                             {{ page_number }}
                                         </span>
                                     </li>
                                 {% else %}
                                     <li class="page-item">
-                                        <a
-                                            class="page-link"
-                                            href="?page={{ page_number }}"
-                                        >
+                                        <a class="page-link" href="?page={{ page_number }}">
                                             {{ page_number }}
                                         </a>
                                     </li>
@@ -238,11 +168,7 @@
 
                             {% if page_obj.has_next %}
                                 <li class="page-item">
-                                    <a
-                                        class="page-link"
-                                        href="?page={{ page_obj.next_page_number }}"
-                                        aria-label="Next page"
-                                    >
+                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next page">
                                         Next
                                     </a>
                                 </li>
@@ -264,10 +190,7 @@
                         Try changing your search term or category filter.
                     </p>
 
-                    <a
-                        class="btn recipe-button mt-3"
-                        href="{% url 'recipes:recipe_list' %}"
-                    >
+                    <a class="btn recipe-button mt-3" href="{% url 'recipes:recipe_list' %}">
                         View all recipes
                     </a>
                 </div>

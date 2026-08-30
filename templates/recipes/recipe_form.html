@@ -40,28 +40,18 @@
                         </p>
                     </div>
 
-                    <form
-                        method="post"
-                        enctype="multipart/form-data"
-                        novalidate
-                    >
+                    <form method="post" enctype="multipart/form-data" novalidate>
                         {% csrf_token %}
 
                         {% if form.non_field_errors %}
-                            <div
-                                class="alert alert-danger"
-                                role="alert"
-                            >
+                            <div class="alert alert-danger" role="alert">
                                 {{ form.non_field_errors }}
                             </div>
                         {% endif %}
 
                         {% for field in form %}
                             <div class="mb-3">
-                                <label
-                                    class="form-label"
-                                    for="{{ field.id_for_label }}"
-                                >
+                                <label class="form-label" for="{{ field.id_for_label }}">
                                     {{ field.label }}
                                 </label>
 
@@ -82,10 +72,7 @@
                         {% endfor %}
 
                         <div class="d-flex gap-2 flex-wrap">
-                            <button
-                                class="btn recipe-button"
-                                type="submit"
-                            >
+                            <button class="btn recipe-button" type="submit">
                                 {% if is_editing %}
                                     Save changes
                                 {% else %}

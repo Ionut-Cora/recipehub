@@ -22,10 +22,7 @@
                             </a>
                         </li>
 
-                        <li
-                            class="breadcrumb-item active"
-                            aria-current="page"
-                        >
+                        <li class="breadcrumb-item active" aria-current="page">
                             {{ recipe.title }}
                         </li>
                     </ol>
@@ -81,17 +78,11 @@
 
                         {% if user == recipe.author %}
                             <div class="mt-4 d-flex gap-2 flex-wrap">
-                                <a
-                                    class="btn recipe-button"
-                                    href="{% url 'recipes:recipe_edit' recipe.slug %}"
-                                >
+                                <a class="btn recipe-button" href="{% url 'recipes:recipe_edit' recipe.slug %}">
                                     Edit recipe
                                 </a>
 
-                                <a
-                                    class="btn btn-outline-danger"
-                                    href="{% url 'recipes:recipe_delete' recipe.slug %}"
-                                >
+                                <a class="btn btn-outline-danger" href="{% url 'recipes:recipe_delete' recipe.slug %}">
                                     Delete recipe
                                 </a>
                             </div>
@@ -100,21 +91,10 @@
 
                     <div class="col-12 col-lg-5">
                         {% if recipe.image %}
-                            <img
-                                src="{{ recipe.image.url }}"
-                                class="recipe-detail-image"
-                                alt="{{ recipe.title }}"
-                            >
+                            <img src="{{ recipe.image.url }}" class="recipe-detail-image" alt="{{ recipe.title }}">
                         {% else %}
-                            <div
-                                class="recipe-detail-placeholder"
-                                role="img"
-                                aria-label="No image available for {{ recipe.title }}"
-                            >
-                                <i
-                                    class="fa-solid fa-utensils"
-                                    aria-hidden="true"
-                                ></i>
+                            <div class="recipe-detail-placeholder" role="img" aria-label="No image available for {{ recipe.title }}">
+                                <i class="fa-solid fa-utensils" aria-hidden="true"></i>
                             </div>
                         {% endif %}
                     </div>
@@ -122,17 +102,11 @@
             </div>
         </header>
 
-        <section
-            class="py-4 recipe-facts-section"
-            aria-label="Recipe information"
-        >
+        <section class="py-4 recipe-facts-section">
             <div class="container">
                 <div class="row g-3 text-center">
                     <div class="col-6 col-md">
-                        <i
-                            class="fa-regular fa-clock recipe-detail-icon"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-regular fa-clock recipe-detail-icon" aria-hidden="true"></i>
                         <div class="recipe-fact">
                             <span class="recipe-fact-label">
                                 Preparation
@@ -145,10 +119,7 @@
                     </div>
 
                     <div class="col-6 col-md">
-                        <i
-                            class="fa-solid fa-fire-burner recipe-detail-icon"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-fire-burner recipe-detail-icon" aria-hidden="true"></i>
                         <div class="recipe-fact">
                             <span class="recipe-fact-label">
                                 Cooking
@@ -161,10 +132,7 @@
                     </div>
 
                     <div class="col-6 col-md">
-                        <i
-                            class="fa-regular fa-hourglass-half recipe-detail-icon"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-regular fa-hourglass-half recipe-detail-icon" aria-hidden="true"></i>
                         <div class="recipe-fact">
                             <span class="recipe-fact-label">
                                 Total time
@@ -177,10 +145,7 @@
                     </div>
 
                     <div class="col-6 col-md">
-                        <i
-                            class="fa-solid fa-utensils recipe-detail-icon"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-utensils recipe-detail-icon" aria-hidden="true"></i>
                         <div class="recipe-fact">
                             <span class="recipe-fact-label">
                                 Servings
@@ -193,10 +158,7 @@
                     </div>
 
                     <div class="col-12 col-md">
-                        <i
-                            class="fa-solid fa-gauge-high recipe-detail-icon"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fa-solid fa-gauge-high recipe-detail-icon" aria-hidden="true"></i>
                         <div class="recipe-fact">
                             <span class="recipe-fact-label">
                                 Difficulty
@@ -213,10 +175,7 @@
 
         <div class="container py-5">
             <div class="row g-5">
-                <section
-                    class="col-12 col-lg-4"
-                    aria-labelledby="ingredients-heading"
-                >
+                <section class="col-12 col-lg-4">
                     <div class="recipe-content-panel">
                         <h2 id="ingredients-heading">
                             Ingredients
@@ -254,10 +213,7 @@
                     </div>
                 </section>
 
-                <section
-                    class="col-12 col-lg-8"
-                    aria-labelledby="instructions-heading"
-                >
+                <section class="col-12 col-lg-8">
                     <div class="recipe-content-panel">
                         <h2 id="instructions-heading">
                             Instructions
@@ -269,20 +225,13 @@
                     </div>
                 </section>
 
-                <section
-                    class="rating-section py-4"
-                    aria-labelledby="rating-heading"
-                >
+                <section class="rating-section py-4">
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-8">
-
                                 <div class="rating-card">
 
-                                    <h2
-                                        id="rating-heading"
-                                        class="h4"
-                                    >
+                                    <h2 id="rating-heading" class="h4">
                                         Rate this recipe
                                     </h2>
 
@@ -303,18 +252,12 @@
                                             </p>
                                         {% endif %}
 
-                                        <form
-                                            method="post"
-                                            action="{% url 'recipes:recipe_rate' recipe.slug %}"
-                                        >
+                                        <form method="post" action="{% url 'recipes:recipe_rate' recipe.slug %}">
                                             {% csrf_token %}
 
                                             {% for field in rating_form %}
                                                 <div class="mb-3">
-                                                    <label
-                                                        class="form-label"
-                                                        for="{{ field.id_for_label }}"
-                                                    >
+                                                    <label class="form-label" for="{{ field.id_for_label }}">
                                                         {{ field.label }}
                                                     </label>
 
@@ -328,10 +271,7 @@
                                                 </div>
                                             {% endfor %}
 
-                                            <button
-                                                class="btn recipe-button"
-                                                type="submit"
-                                            >
+                                            <button class="btn recipe-button" type="submit">
                                                 {% if user_rating %}
                                                     Update rating
                                                 {% else %}
@@ -352,24 +292,17 @@
                                     {% endif %}
 
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section
-                    class="comments-section py-5"
-                    aria-labelledby="comments-heading"
-                >
+                <section class="comments-section py-5">
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-8">
 
-                                <h2
-                                    id="comments-heading"
-                                    class="mb-4"
-                                >
+                                <h2 id="comments-heading" class="mb-4">
                                     Comments
                                 </h2>
 
@@ -379,18 +312,12 @@
                                             Leave a comment
                                         </h3>
 
-                                        <form
-                                            method="post"
-                                            action="{% url 'recipes:comment_create' recipe.slug %}"
-                                        >
+                                        <form method="post" action="{% url 'recipes:comment_create' recipe.slug %}">
                                             {% csrf_token %}
 
                                             {% for field in comment_form %}
                                                 <div class="mb-3">
-                                                    <label
-                                                        class="form-label"
-                                                        for="{{ field.id_for_label }}"
-                                                    >
+                                                    <label class="form-label" for="{{ field.id_for_label }}">
                                                         {{ field.label }}
                                                     </label>
 
@@ -404,10 +331,7 @@
                                                 </div>
                                             {% endfor %}
 
-                                            <button
-                                                class="btn recipe-button"
-                                                type="submit"
-                                            >
+                                            <button class="btn recipe-button" type="submit">
                                                 Post comment
                                             </button>
                                         </form>
@@ -428,35 +352,24 @@
                                         {% for comment in comments %}
                                             <article class="comment-card">
 
-                                                <div
-                                                    class="d-flex justify-content-between
-                                                    align-items-start gap-3"
-                                                >
+                                                <div class="d-flex justify-content-between align-items-start gap-3">
                                                     <div>
                                                         <h3 class="h6 mb-1">
                                                             {{ comment.author.username }}
                                                         </h3>
 
                                                         <p class="comment-date mb-0">
-                                                            <time
-                                                                datetime="{{ comment.created_on|date:'c' }}"
-                                                            >
+                                                            <time datetime="{{ comment.created_on|date:'c' }}">
                                                                 {{ comment.created_on|date:"j F Y, H:i" }}
                                                             </time>
                                                         </p>
                                                     </div>
 
                                                     {% if user == comment.author %}
-                                                        <form
-                                                            method="post"
-                                                            action="{% url 'recipes:comment_delete' comment.id %}"
-                                                        >
+                                                        <form method="post" action="{% url 'recipes:comment_delete' comment.id %}">
                                                             {% csrf_token %}
 
-                                                            <button
-                                                                class="btn btn-sm btn-outline-danger"
-                                                                type="submit"
-                                                            >
+                                                            <button class="btn btn-sm btn-outline-danger" type="submit">
                                                                 Delete
                                                             </button>
                                                         </form>
