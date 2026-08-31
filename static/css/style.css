@@ -1055,10 +1055,9 @@ a:focus-visible {
 
 .about-discover-card {
     padding: 3rem;
-    border-radius: 1.25rem;
     background-color: var(--background-color);
     text-align: center;
-    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
 }
 
 .about-discover-card > i {
