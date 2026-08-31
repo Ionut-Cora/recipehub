@@ -185,7 +185,6 @@ a:focus-visible {
 }
 
 .community-cta-button {
-    padding: 0.8rem 1.4rem;
     border: 2px solid var(--accent-color);
     background-color: var(--accent-color);
     color: var(--white-color);
