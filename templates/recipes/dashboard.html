@@ -44,12 +44,12 @@
                 {% for recipe in user_recipes %}
 
                     <div class="col-12 col-md-6 col-lg-4">
-                        <article class="card recipe-card h-100 shadow-sm">
+                        <article class="card recipe-card h-100 rounded-4 shadow-sm">
 
                             {% if recipe.image %}
-                                <img src="{{ recipe.image.url }}" class="card-img-top recipe-card-image" alt="{{ recipe.title }}">
+                                <img src="{{ recipe.image.url }}" class="card-img-top recipe-card-image rounded-top-4" alt="{{ recipe.title }}">
                             {% else %}
-                                <div class="recipe-card-placeholder" role="img" aria-label="No image available for {{ recipe.title }}">
+                                <div class="recipe-card-placeholder rounded-top-4" role="img" aria-label="No image available for {{ recipe.title }}">
                                     <span aria-hidden="true">
                                         <i class="fa-solid fa-utensils" aria-hidden="true"></i>
                                     </span>
