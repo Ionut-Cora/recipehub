@@ -224,7 +224,6 @@ a:focus-visible {
 }
 
 .community-cta-outline {
-    padding: 0.8rem 1.4rem;
     border: 2px solid var(--background-color);
     background-color: transparent;
     color: var(--background-color);
