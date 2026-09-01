@@ -303,8 +303,8 @@ a:focus-visible {
 }
 
 .page-header {
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url('../images/browse-recipe-page-hero-bg.jpg');
-    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/browse-recipe-page-hero-bg.jpg');
+    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url("../images/browse-recipe-page-hero-bg.5494cef79707.jpg");
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url("../images/browse-recipe-page-hero-bg.5494cef79707.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1005,8 +1005,8 @@ a:focus-visible {
 /* About Page */
 
 .about-hero {
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url('../images/about-page-hero-bg.jpg');
-    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/about-page-hero-bg.jpg');
+    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url("../images/about-page-hero-bg.bc1313b6704c.jpg");
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url("../images/about-page-hero-bg.bc1313b6704c.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1166,24 +1166,24 @@ a:focus-visible {
 }
 
 .login-page {
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url('../images/login-background-image.jpg');
-    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/login-background-image.jpg');
+    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url("../images/login-background-image.89e4802cafca.jpg");
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url("../images/login-background-image.89e4802cafca.jpg");
 }
 
 .signup-page {
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url('../images/signup-background-image.jpg');
-    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/signup-background-image.jpg');
+    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url("../images/signup-background-image.d03cce7b5be5.jpg");
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url("../images/signup-background-image.d03cce7b5be5.jpg");
 }
 
 .logout-page,
 .confirm-delete-page {
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url('../images/logout-background-image.jpg');
-    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/logout-background-image.jpg');
+    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url("../images/logout-background-image.9cc8d85db120.jpg");
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url("../images/logout-background-image.9cc8d85db120.jpg");
 }
 
 .recipe-form-page {
-    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url('../images/recipe-form-background-image.jpg');
-    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url('../images/recipe-form-background-image.jpg');
+    background-image: -webkit-gradient(linear,left top, left bottom,from(rgb(101 113 83 / 72%)),to(rgb(101 113 83 / 72%))),url("../images/recipe-form-background-image.c920642e6851.jpg");
+    background-image: linear-gradient(rgb(101 113 83 / 72%),rgb(101 113 83 / 72%)),url("../images/recipe-form-background-image.c920642e6851.jpg");
 }
 
 
