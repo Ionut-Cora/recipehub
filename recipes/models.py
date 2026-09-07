@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 
 class Category(models.Model):
     """
-    Represents a category used to organise recipes.
+    A category used to organise recipes.
     """
 
     name = models.CharField(max_length=100, unique=True)
@@ -21,7 +21,7 @@ class Category(models.Model):
 
 class Ingredient(models.Model):
     """
-    Represents an ingredient that can be used in multiple recipes.
+    An ingredient that may be used in many recipes.
     """
 
     name = models.CharField(
@@ -38,7 +38,7 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     """
-    Represents a recipe created by a registered RecipeHub user.
+    A recipe created by a registered user on RecipeHub.
     """
 
     class Difficulty(models.TextChoices):
@@ -129,7 +129,7 @@ class Recipe(models.Model):
     @property
     def total_time(self):
         """
-        Return the total preparation and cooking time in minutes.
+        The cooking and prep time in minutes.
         """
         return self.preparation_time + self.cooking_time
 
@@ -240,7 +240,7 @@ class RecipeIngredient(models.Model):
 
 class Comment(models.Model):
     """
-    Represents a comment left by a registered user on a recipe.
+    A comment left by a registered user on a recipe.
     """
 
     recipe = models.ForeignKey(
@@ -275,7 +275,7 @@ class Comment(models.Model):
 
 class Rating(models.Model):
     """
-    Represents a rating given by a registered user to a recipe.
+    A rating given by a registered user for a recipe.
     """
 
     class Score(models.IntegerChoices):
