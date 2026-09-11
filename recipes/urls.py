@@ -18,8 +18,8 @@ urlpatterns = [
         name="dashboard",
     ),
     path(
-        "recipes/", 
-        views.recipe_list, 
+        "recipes/",
+        views.recipe_list,
         name="recipe_list"
     ),
     path(

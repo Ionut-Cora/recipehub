@@ -82,10 +82,7 @@ def recipe_list(request):
     if search_query:
         published_recipes = published_recipes.filter(
             Q(title__icontains=search_query)
-            | Q(
-                recipe_ingredients__ingredient__name__icontains=
-                search_query
-            )
+            | Q(recipe_ingredients__ingredient__name__icontains=search_query)
         ).distinct()
 
     if category_id:
