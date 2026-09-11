@@ -754,7 +754,6 @@ a:focus-visible {
 
 .recipe-detail-header h1 {
     margin-bottom: 1rem;
-    font-size: clamp(2.5rem, 7vw, 4.75rem);
     line-height: 1.05;
 }
 
