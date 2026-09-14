@@ -1186,6 +1186,49 @@ a:focus-visible {
 }
 
 
+/* --------------------------------------------------
+   404 Error Page
+-------------------------------------------------- */
+
+.error-page {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: calc(100vh - 10rem);
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 4rem 0;
+    background-color: var(--background-color);
+}
+
+.error-page-content {
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+.error-code {
+    margin-bottom: 0;
+    color: var(--primary-color);
+    font-family: var(--heading-font);
+    font-size: clamp(6rem, 18vw, 10rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.error-page h2 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-family: var(--heading-font);
+}
+
+.error-message {
+    max-width: 32rem;
+    margin: 0 auto 2rem;
+    color: var(--text-light-color);
+}
+
+
 /* Media Queries */
 
 @media (max-width: 991.98px) {
