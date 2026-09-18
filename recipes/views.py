@@ -215,6 +215,9 @@ def recipe_create(request):
                 "Your recipe has been created successfully.",
             )
 
+            if recipe.status == Recipe.Status.DRAFT:
+                return redirect("/")
+
             return redirect(
                 "recipes:recipe_detail",
                 slug=recipe.slug,
