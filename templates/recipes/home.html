@@ -289,7 +289,7 @@
                                     </div>
 
                                     <p class="small text-secondary mb-3">
-                                        By {{ recipe.author.username }}
+                                        By {{ recipe.display_author }}
                                     </p>
 
                                     <a class="btn recipe-button" href="{% url 'recipes:recipe_detail' recipe.slug %}" aria-label="View {{ recipe.title }}">
