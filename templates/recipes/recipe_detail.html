@@ -98,7 +98,7 @@
             </div>
         </header>
 
-        <section class="py-4 recipe-facts-section">
+        <div class="py-4 recipe-facts-section">
             <div class="container">
                 <div class="row g-3 text-center">
                     <div class="col-6 col-md">
@@ -167,7 +167,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <div class="container py-5">
             <div class="row g-5">
@@ -355,7 +355,7 @@
                                                         </h3>
 
                                                         <p class="comment-date mb-0">
-                                                            <time datetime="{{ comment.created_on|date:'c' }}">
+                                                            <time datetime="{{ comment.created_on|date:'Y-m-d\TH:i:sP' }}">
                                                                 {{ comment.created_on|date:"j F Y, H:i" }}
                                                             </time>
                                                         </p>
