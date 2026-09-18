@@ -71,6 +71,165 @@
                             </div>
                         {% endfor %}
 
+
+                        <!-- Ingredients -->
+                        <div class="ingredient-form-section mt-5 mb-4">
+                            <div class="mb-3">
+                                <p class="eyebrow mb-1">
+                                    Recipe ingredients
+                                </p>
+
+                                <h2 class="h4">
+                                    Ingredients
+                                </h2>
+
+                                <p class="text-secondary">
+                                    Add the ingredients, quantities and units needed for this recipe.
+                                </p>
+                            </div>
+
+                            {{ ingredient_formset.management_form }}
+
+                            {% if ingredient_formset.non_form_errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ ingredient_formset.non_form_errors }}
+                                </div>
+                            {% endif %}
+
+                            <div id="ingredient-form-list">
+                                {% for ingredient_form in ingredient_formset %}
+                                    <div class="ingredient-row border rounded-3 p-3 mb-3">
+                                    {% for hidden_field in ingredient_form.hidden_fields %}
+                                        {{ hidden_field }}
+                                    {% endfor %}
+
+                                    <div class="row g-3">
+                                        <div class="col-12 col-md-6">
+                                            <label class="form-label" for="{{ ingredient_form.ingredient_name.id_for_label }}">
+                                                Ingredient
+                                            </label>
+
+                                            {{ ingredient_form.ingredient_name }}
+
+                                            {% for error in ingredient_form.ingredient_name.errors %}
+                                                <div class="text-danger small mt-1">
+                                                    {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+
+                                        <div class="col-6 col-md-3">
+                                            <label class="form-label" for="{{ ingredient_form.quantity.id_for_label }}">
+                                                Quantity
+                                            </label>
+
+                                            {{ ingredient_form.quantity }}
+
+                                            {% for error in ingredient_form.quantity.errors %}
+                                                <div class="text-danger small mt-1">
+                                                    {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+
+                                        <div class="col-6 col-md-3">
+                                            <label class="form-label" for="{{ ingredient_form.unit.id_for_label }}">
+                                                Unit
+                                            </label>
+
+                                            {{ ingredient_form.unit }}
+
+                                            {% for error in ingredient_form.unit.errors %}
+                                                <div class="text-danger small mt-1">
+                                                    {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label class="form-label" for="{{ ingredient_form.preparation_note.id_for_label }}">
+                                                Preparation note
+                                            </label>
+
+                                            {{ ingredient_form.preparation_note }}
+
+                                            <div class="form-text">
+                                                Optional, for example:
+                                                chopped or finely sliced.
+                                            </div>
+
+                                            {% for error in ingredient_form.preparation_note.errors %}
+                                                <div class="text-danger small mt-1">
+                                                    {{ error }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+
+                                        {% if is_editing and ingredient_form.instance.pk %}
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    {{ ingredient_form.DELETE }}
+
+                                                    <label class="form-check-label text-danger" for="{{ ingredient_form.DELETE.id_for_label }}">
+                                                        Remove this ingredient
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            </div>
+
+                            <button type="button" id="add-ingredient" class="btn btn-outline-secondary mb-3">
+                                <i class="fa-solid fa-plus me-1"></i>
+                                Add another ingredient
+                            </button>
+
+                            <template id="empty-ingredient-form">
+                                <div class="ingredient-row border rounded-3 p-3 mb-3">
+                                    <div class="row g-3">
+                                        <div class="col-12 col-md-6">
+                                            <label class="form-label" for="{{ ingredient_formset.empty_form.ingredient_name.id_for_label }}">
+                                                Ingredient
+                                            </label>
+
+                                            {{ ingredient_formset.empty_form.ingredient_name }}
+                                        </div>
+
+                                        <div class="col-6 col-md-3">
+                                            <label class="form-label" for="{{ ingredient_formset.empty_form.quantity.id_for_label }}">
+                                                Quantity
+                                            </label>
+
+                                            {{ ingredient_formset.empty_form.quantity }}
+                                        </div>
+
+                                        <div class="col-6 col-md-3">
+                                            <label class="form-label" for="{{ ingredient_formset.empty_form.unit.id_for_label }}">
+                                                Unit
+                                            </label>
+
+                                            {{ ingredient_formset.empty_form.unit }}
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label class="form-label" for="{{ ingredient_formset.empty_form.preparation_note.id_for_label }}">
+                                                Preparation note
+                                            </label>
+
+                                            {{ ingredient_formset.empty_form.preparation_note }}
+
+                                            <div class="form-text">
+                                                Optional, for example: chopped or finely sliced.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
+
                         <div class="d-flex gap-2 flex-wrap">
                             <button class="btn recipe-button" type="submit">
                                 {% if is_editing %}
@@ -99,4 +258,36 @@
         </div>
     </div>
 </section>
+{% endblock %}
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const addButton = document.getElementById("add-ingredient");
+        const formList = document.getElementById("ingredient-form-list");
+        const emptyForm = document.getElementById("empty-ingredient-form");
+        const totalForms = document.getElementById(
+            "id_recipe_ingredients-TOTAL_FORMS"
+        );
+
+        if (!addButton || !formList || !emptyForm || !totalForms) {
+            return;
+        }
+
+        addButton.addEventListener("click", function () {
+            const formNumber = Number(totalForms.value);
+
+            const newFormHtml = emptyForm.innerHTML.replaceAll(
+                "__prefix__",
+                formNumber
+            );
+
+            formList.insertAdjacentHTML(
+                "beforeend",
+                newFormHtml
+            );
+
+            totalForms.value = formNumber + 1;
+        });
+    });
+</script>
 {% endblock %}

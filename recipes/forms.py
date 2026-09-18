@@ -1,6 +1,6 @@
 from allauth.account.forms import LoginForm, SignupForm
 from django import forms
-from .models import Comment, Rating, Recipe
+from .models import Comment, Rating, Recipe, RecipeIngredient
 
 
 class RecipeHubSignupForm(SignupForm):
@@ -112,6 +112,69 @@ class RecipeForm(forms.ModelForm):
             ),
         }
 
+
+class RecipeIngredientForm(forms.ModelForm):
+    """
+    Form for adding an ingredient to a recipe.
+    Users enter the ingredient name manually.
+    """
+
+    ingredient_name = forms.CharField(
+        max_length=100,
+        label="Ingredient",
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "e.g. Bacon",
+            }
+        ),
+    )
+
+    class Meta:
+        model = RecipeIngredient
+        fields = [
+            "quantity",
+            "unit",
+            "preparation_note",
+        ]
+
+        widgets = {
+            "quantity": forms.NumberInput(
+                attrs={
+                    "class": "form-control",
+                    "min": "0.01",
+                    "step": "0.01",
+                    "placeholder": "Quantity",
+                }
+            ),
+            "unit": forms.Select(
+                attrs={"class": "form-select"}
+            ),
+            "preparation_note": forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "e.g. chopped",
+                }
+            ),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        if self.instance.pk and self.instance.ingredient_id:
+            self.fields["ingredient_name"].initial = (
+                self.instance.ingredient.name
+            )
+
+
+RecipeIngredientFormSet = forms.inlineformset_factory(
+    Recipe,
+    RecipeIngredient,
+    form=RecipeIngredientForm,
+    extra=1,
+    can_delete=True,
+)
+        
 
 class CommentForm(forms.ModelForm):
     """

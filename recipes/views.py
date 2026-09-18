@@ -1,10 +1,10 @@
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Category, Comment, Rating, Recipe
+from .models import Category, Comment, Rating, Ingredient, Recipe
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
-from .forms import CommentForm, RatingForm, RecipeForm
+from .forms import CommentForm, RatingForm, RecipeForm, RecipeIngredientFormSet
 from django.db.models import Avg, Q
 from django.contrib.auth import get_user_model
 
@@ -166,7 +166,8 @@ def recipe_detail(request, slug):
 @login_required
 def recipe_create(request):
     """
-    Allow an authenticated user to create a new recipe.
+    Allow an authenticated user to create a new recipe
+    with manually entered ingredients.
     """
 
     if request.method == "POST":
@@ -175,10 +176,39 @@ def recipe_create(request):
             request.FILES,
         )
 
-        if form.is_valid():
+        ingredient_formset = RecipeIngredientFormSet(
+            request.POST,
+        )
+
+        if form.is_valid() and ingredient_formset.is_valid():
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
+
+            for ingredient_form in ingredient_formset:
+                if not ingredient_form.cleaned_data:
+                    continue
+
+                if ingredient_form.cleaned_data.get("DELETE"):
+                    continue
+
+                ingredient_name = (
+                    ingredient_form.cleaned_data.get("ingredient_name", "")
+                    .strip()
+                )
+
+                if not ingredient_name:
+                    continue
+
+                ingredient, created = Ingredient.objects.get_or_create(
+                    name__iexact=ingredient_name,
+                    defaults={"name": ingredient_name},
+                )
+
+                recipe_ingredient = ingredient_form.save(commit=False)
+                recipe_ingredient.recipe = recipe
+                recipe_ingredient.ingredient = ingredient
+                recipe_ingredient.save()
 
             messages.success(
                 request,
@@ -191,9 +221,11 @@ def recipe_create(request):
             )
     else:
         form = RecipeForm()
+        ingredient_formset = RecipeIngredientFormSet()
 
     context = {
         "form": form,
+        "ingredient_formset": ingredient_formset,
     }
 
     return render(
@@ -206,7 +238,8 @@ def recipe_create(request):
 @login_required
 def recipe_edit(request, slug):
     """
-    Allow the recipe author to edit their own recipe.
+    Allow the recipe author to edit their own recipe
+    and its ingredients.
     """
 
     recipe = get_object_or_404(
@@ -222,8 +255,45 @@ def recipe_edit(request, slug):
             instance=recipe,
         )
 
-        if form.is_valid():
+        ingredient_formset = RecipeIngredientFormSet(
+            request.POST,
+            instance=recipe,
+        )
+
+        if form.is_valid() and ingredient_formset.is_valid():
             form.save()
+
+            for ingredient_form in ingredient_formset:
+                if not ingredient_form.cleaned_data:
+                    continue
+
+                if ingredient_form.cleaned_data.get("DELETE"):
+                    if ingredient_form.instance.pk:
+                        ingredient_form.instance.delete()
+                    continue
+
+                ingredient_name = (
+                    ingredient_form.cleaned_data.get(
+                        "ingredient_name",
+                        ""
+                    ).strip()
+                )
+
+                if not ingredient_name:
+                    continue
+
+                ingredient, created = Ingredient.objects.get_or_create(
+                    name__iexact=ingredient_name,
+                    defaults={"name": ingredient_name},
+                )
+
+                recipe_ingredient = ingredient_form.save(
+                    commit=False
+                )
+
+                recipe_ingredient.recipe = recipe
+                recipe_ingredient.ingredient = ingredient
+                recipe_ingredient.save()
 
             messages.success(
                 request,
@@ -234,11 +304,17 @@ def recipe_edit(request, slug):
                 "recipes:recipe_detail",
                 slug=recipe.slug,
             )
+
     else:
         form = RecipeForm(instance=recipe)
 
+        ingredient_formset = RecipeIngredientFormSet(
+            instance=recipe,
+        )
+
     context = {
         "form": form,
+        "ingredient_formset": ingredient_formset,
         "recipe": recipe,
         "is_editing": True,
     }
