@@ -47,12 +47,8 @@
                         </p>
 
                         <p class="mb-0">
-                            By
-                            <strong>{{ recipe.author.username }}</strong>
-                            · Published
-                            <time datetime="{{ recipe.created_on|date:'Y-m-d' }}">
-                                {{ recipe.created_on|date:"j F Y" }}
-                            </time>
+                            By <strong>{{ recipe.display_author }}</strong>
+                            Published {{ recipe.created_on|date:"j F Y" }}
                         </p>
 
                         <div class="recipe-rating-summary mt-3">

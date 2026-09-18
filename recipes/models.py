@@ -150,6 +150,15 @@ class Recipe(models.Model):
 
         super().save(*args, **kwargs)
 
+    @property
+    def display_author(self):
+        username = self.author.username
+
+        if "@" in username:
+            return "anonymous"
+
+        return username
+
 
 class RecipeIngredient(models.Model):
     """
