@@ -281,6 +281,15 @@ class Comment(models.Model):
             f"on {self.recipe.title}"
         )
 
+    @property
+    def display_author(self):
+        username = self.author.username
+
+        if "@" in username:
+            return "anonymous"
+
+        return username
+
 
 class Rating(models.Model):
     """
