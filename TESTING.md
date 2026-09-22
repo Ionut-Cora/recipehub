@@ -99,41 +99,20 @@
 
 ---
 
-# Checks and Validation
+## Checks and Validation
 
-## Lighthouse
+### Lighthouse
 
-### Home
-
-<img src="./documentation/images/lighthouse_screenshots/lighthouse-homepage.png" alt="Lighthouse homepage screenshot.">
-
-### Browse Recipes
-
-<img src="./documentation/images/lighthouse_screenshots/lighthouse-browse-recipes.png" alt="Lighthouse browse recipes page screenshot.">
-
-### About
-
-<img src="./documentation/images/lighthouse_screenshots/lighthouse-about.png" alt="Lighthouse about page screenshot.">
-
-### Login
-
-<img src="./documentation/images/lighthouse_screenshots/lighthouse-login.png" alt="Lighthouse login page screenshot.">
-
-### Register/Signup
-
-<img src="./documentation/images/lighthouse_screenshots/lighthouse-register.png" alt="Lighthouse register page screenshot.">
-
-### Dashboard
-
-<img src="./documentation/images/lighthouse_screenshots/lighthouse-dashboard.png" alt="Lighthouse dashboard page screenshot.">
-
-### Create Recipe
-
-<img src="./documentation/images/lighthouse_screenshots/lighthouse-create-recipe.png" alt="Lighthouse create recipe page screenshot.">
-
-### Logout
-
-<img src="./documentation/images/lighthouse_screenshots/lighthouse-logout.png" alt="Lighthouse logout page screenshot.">
+| Page | Screenshot |
+|---|---|
+| Home | ![screenshot](documentation/images/lighthouse_screenshots/lighthouse-homepage.png) |
+| Browse Recipes | ![screenshot](documentation/images/lighthouse_screenshots/lighthouse-browse-recipes.png) |
+| About | ![screenshot](documentation/images/lighthouse_screenshots/lighthouse-about.png) |
+| Login | ![screenshot](documentation/images/lighthouse_screenshots/lighthouse-login.png) |
+| Register/Signup | ![screenshot](documentation/images/lighthouse_screenshots/lighthouse-register.png) |
+| Dashboard | ![screenshot](documentation/images/lighthouse_screenshots/lighthouse-dashboard.png) |
+| Create Recipe | ![screenshot](documentation/images/lighthouse_screenshots/lighthouse-create-recipe.png) |
+| Logout | ![screenshot](documentation/images/lighthouse_screenshots/lighthouse-logout.png) |
 
 ---
 
