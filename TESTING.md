@@ -179,16 +179,41 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 ---
 
-# Bugs
+## Defensive Programming
+
+Defensive programming was manually tested with the below user acceptance testing:
+
+| Page | Expectation | Test | Result |
+|---|---|---|---|
+| Blog Management | As a blog owner there should be the ability to create new blog posts with a title, image and content. | Created a new post with valid title, image and content. | Post created and shown within the blog. |
+| | As a blog owner there should be the ability to edit existing blog posts. | Edited content of existing blog post. | Content of post updated successfully. |
+| | As a blog owner there should be the ability to delete existing blog posts. | Attempted to delete a post and asked for confirmation. | Existing post successfully deleted. |
+| | As a blog owner there should be the ability to view a list of all existing posts. | As a blog owner navigated to the owner dashboard and viewed existing posts. | List of all existing posts were shown. |
+| | As a blog owner there should be the ability to create and preview blog posts as draft before publishing. | Created draft post and previewed. | Draft post shown in preview as expected. |
+| Comments Management | As a blog owner there should be the ability to accept and reject comments. | Accepted and rejected comments from owner dashboard. | Accepted comments were published and rejected comments were deleted. |
+| | As a blog owner there should be the ability to delete and edit comments. | Deleted and edited existing comments. | Existing comments were deleted and updated as expected. |
+| User Authentication | As a registered user there should be the ability to login to the site. | Attempted to login with valid and invalid details. | Valid details accepted and login successful. Invalid details rejected. |
+| | As a user there should be the ability to register for an account. | Registered new user with unique details. | New user successfully registered. |
+| | As a user there should be the ability to log out securely. | Logged out and attempted to access restricted area. | Access denied as expected after logging out. |
+| User Comments | As a registered user there should be the ability to add comments to blog posts. | Logged in and added comments to a blog post. | Comments successfully added and marked as pending approval. |
+| | As a user there should be the ability to edit own comments. | Edited own comments. | Own comments successfully updated. |
+| | As a user there should be the ability to delete own comments. | Deleted own comments. | Own comments successfully deleted. |
+| Guest Features | As a guest there should be the ability to view blog posts without registration. | Viewed blog posts as a guest. | Blog posts viewed without registration. |
+| | Display the names of other commenters on posts. | Checked names of commenters on posts as a guest user. | Names of other commenters displayed as expected.. |
+| 404 Error Page | There should be a 404 error page for non existing pages. | Navigated to an invalid URL (e.g., `/test`). | A custom 404 error page was displayed as expected. |
+
+---
+
+## Bugs
 
 | Bug | Cause | Fix | Status |
 |---|---|---|---|
 | Static CSS not updating | Old collected static file was being served | Rebuilt static files and confirmed correct source file | Fixed |
 | Recipe image not displaying | Media/Cloudinary configuration required correction | Corrected image/media configuration | Fixed |
 
-## Static Files During Deployment
+### Static Files During Deployment
 A problem occurred during development where the published project was loading an older version of the project CSS file. The application loaded correctly, but any updated styling would not be visible.
 Research was then done into the static-file configuration, and a rebuild of the static files was performed using WhiteNoise to load the current source CSS. This allowed a clear distinction to be made between source static files and the production-collected static files.
 
-## Recipe Image Display
+### Recipe Image Display
 Recipe images were not loading correctly in development. The Cloudinary setup was fixed, and image and media settings were reviewed and updated to properly load and show recipe images.
