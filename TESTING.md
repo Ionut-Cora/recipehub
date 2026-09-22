@@ -1,5 +1,8 @@
 # Testing
 
+> [!NOTE]  
+> Return back to the [README.md](README.md) file.
+
 ## Manual Testing
 
 | Feature | Test | Expected Result | Result | Screenshot |
@@ -58,6 +61,8 @@
 
 ## Responsive Testing
 
+I've tested my deployed project to check for responsiveness issues.
+
 | Device / Size | Area Tested | Expected Result | Result | Screenshot |
 |---|---|---|---|---|
 | Mobile phone | Dashboard | Responsive, no horizontal scrolling | pass | ![screenshot](documentation/images/testing-screenshots/mobile-dashboard.png) |
@@ -69,6 +74,8 @@
 ---
 
 ## Cross-Browser Testing
+
+I've tested my deployed project on multiple browsers to check for compatibility issues.
 
 | Browser | Device | Page | Result | Screenshot |
 |---|---|---|---|---|
