@@ -150,43 +150,32 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 | About | ![screenshot](documentation/images/wave_screenshots/wave-about.png) |
 | Login | ![screenshot](documentation/images/wave_screenshots/wave-login.png) |
 
----
-
-## CI Python Linter PEP8
-
-### recipehub/urls.py
-
-<img src="./documentation/images/python-linter-screenshots/recipehub-urls.png" alt="recipehub/urls.py file validated using PEP8 CI Python Linter.">
-
-### recipes/admin.py
-
-<img src="./documentation/images/python-linter-screenshots/recipes-admin.png" alt="recipes/admin.py file validated using PEP8 CI Python Linter.">
-
-### recipes/apps.py
-
-<img src="./documentation/images/python-linter-screenshots/recipes-apps.png" alt="recipes/apps.py file validated using PEP8 CI Python Linter.">
-
-### recipes/forms.py
-
-<img src="./documentation/images/python-linter-screenshots/recipes-forms.png" alt="recipes/forms.py file validated using PEP8 CI Python Linter.">
-
-### recipes/models.py
-
-<img src="./documentation/images/python-linter-screenshots/recipes-models.png" alt="recipes/models.py file validated using PEP8 CI Python Linter.">
-
-### recipes/urls.py
-
-<img src="./documentation/images/python-linter-screenshots/recipes-urls.png" alt="recipes/urls.py file validated using PEP8 CI Python Linter.">
-
-### recipes/views.py
-
-<img src="./documentation/images/python-linter-screenshots/recipes-views.png" alt="recipes/views.py file validated using PEP8 CI Python Linter.">
 
 ---
 
-## JSHint JavaScript Code Validation
+### JSHint JavaScript Code Validation
+
+I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
 
 <img src="./documentation/images/jshint/jshint-code-validation.png" alt="JSHint JavaScript Code Validation screenshot.">
+
+---
+
+### CI Python Linter PEP8
+
+I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
+
+| Directory | Page | Screenshot |
+|---|---|---|
+|  | manage.py | ![screenshot](documentation/images/python-linter-screenshots/manage.png) |
+| recipehub | settings.py | ![screenshot](documentation/images/python-linter-screenshots/recipehub-settings.png) |
+| recipehub | urls.py | ![screenshot](documentation/images/python-linter-screenshots/recipehub-urls.png) |
+| recipes | admin.py | ![screenshot](documentation/images/python-linter-screenshots/recipes-admin.png) |
+| recipes | apps.py | ![screenshot](documentation/images/python-linter-screenshots/recipes-apps.png) |
+| recipes | forms.py | ![screenshot](documentation/images/python-linter-screenshots/recipes-forms.png) |
+| recipes | models.py | ![screenshot](documentation/images/python-linter-screenshots/recipes-models.png) |
+| recipes | urls.py | ![screenshot](documentation/images/python-linter-screenshots/recipes-urls.png) |
+| recipes | views.py | ![screenshot](documentation/images/python-linter-screenshots/recipes-views.png) |
 
 ---
 
