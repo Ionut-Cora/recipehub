@@ -116,39 +116,20 @@
 
 ---
 
-## W3C Markup Validator
+### W3C Markup Validator
 
-### Home
+I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
 
-<img src="./documentation/images/w3c_markup_validator/html_home.png" alt="W3C Markup Validator homepage.">
-
-### Browse Recipes
-
-<img src="./documentation/images/w3c_markup_validator/html-browse-recipe.png" alt="W3C Markup Validator browse recipes page.">
-
-### About
-
-<img src="./documentation/images/w3c_markup_validator/html-about.png" alt="W3C Markup Validator about page.">
-
-### Login
-
-<img src="./documentation/images/w3c_markup_validator/html-login.png" alt="W3C Markup Validator login page.">
-
-### Register/Signup
-
-<img src="./documentation/images/w3c_markup_validator/html-signup.png" alt="W3C Markup Validator register/signup page.">
-
-### Dashboard
-
-<img src="./documentation/images/w3c_markup_validator/html-dashboard.png" alt="W3C Markup Validator dashboard page.">
-
-### Create Recipe
-
-<img src="./documentation/images/w3c_markup_validator/html-create-recipe.png" alt="W3C Markup Validator create recipe page.">
-
-### Logout
-
-<img src="./documentation/images/w3c_markup_validator/html-logout.png" alt="W3C Markup Validator logout page.">
+| Page | Screenshot |
+|---|---|
+| Home | ![screenshot](documentation/images/w3c_markup_validator/html_home.png) |
+| Browse Recipes | ![screenshot](documentation/images/w3c_markup_validator/html-browse-recipe.png) |
+| About | ![screenshot](documentation/images/w3c_markup_validator/html-about.png) |
+| Login | ![screenshot](documentation/images/w3c_markup_validator/html-login.png) |
+| Register/Signup | ![screenshot](documentation/images/w3c_markup_validator/html-signup.png) |
+| Dashboard | ![screenshot](documentation/images/w3c_markup_validator/html-dashboard.png) |
+| Create Recipe | ![screenshot](documentation/images/w3c_markup_validator/html-create-recipe.png) |
+| Logout | ![screenshot](documentation/images/w3c_markup_validator/html-logout.png) |
 
 ---
 
