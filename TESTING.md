@@ -133,29 +133,22 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 ---
 
-## W3C CSS Validator
+### W3C CSS Validator
+
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
 
 <img src="./documentation/images/w3c_css_validator/css-validator.png" alt="W3C CSS Validator screenshot.">
 
 ---
 
-## WAVE web accessibility evaluation
+### WAVE web accessibility evaluation
 
-### Home
-
-<img src="./documentation/images/wave_screenshots/wave-homepage.png" alt="WAVE web accessibility evaluation homepage.">
-
-### Browse Recipes
-
-<img src="./documentation/images/wave_screenshots/wave-browse-recipes.png" alt="WAVE web accessibility evaluation browse recipes page.">
-
-### About
-
-<img src="./documentation/images/wave_screenshots/wave-about.png" alt="WAVE web accessibility evaluation about page.">
-
-### Login
-
-<img src="./documentation/images/wave_screenshots/wave-login.png" alt="WAVE web accessibility evaluation login page.">
+| Page | Screenshot |
+|---|---|
+| Home | ![screenshot](documentation/images/wave_screenshots/wave-homepage.png) |
+| Browse Recipes | ![screenshot](documentation/images/wave_screenshots/wave-browse-recipes.png) |
+| About | ![screenshot](documentation/images/wave_screenshots/wave-about.png) |
+| Login | ![screenshot](documentation/images/wave_screenshots/wave-login.png) |
 
 ---
 
